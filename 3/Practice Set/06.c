@@ -1,6 +1,12 @@
+/*
+AUTHOR:Ayush Kumar Tiwari
+DATE:22-10-2025
+COPYRIGHTED BY AYUSH KUMAR TIWARI
+DESCRIPTION:PROGRAM TO FIND THE LARGEST OF FOUR NUMBERS ENTERED BY THE USER.
+*/
 #include <stdio.h>
 int main() {
-	int a, b, c, d;
+	int a, b, c, d; //IT SHOWS THE A, B, C, D HAS BEEN TAKEN AS INTEGERS
 	printf("Enter the first number:  ");
 	scanf("%d",&a);
 	printf("Enter the second number:  ");
