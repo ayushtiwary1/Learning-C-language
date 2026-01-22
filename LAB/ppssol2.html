@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C Programming Mid-Sem Study Guide</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { background-color: #f8fafc; color: #1e293b; font-family: 'Inter', sans-serif; line-height: 1.6; }
+        .topic-card { background: white; border-radius: 12px; padding: 2rem; margin-bottom: 2.5rem; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1); border-left: 6px solid #3b82f6; }
+        pre { background: #1e293b; color: #f8fafc; padding: 1rem; border-radius: 8px; overflow-x: auto; margin: 1rem 0; font-size: 0.9rem; }
+        code { font-family: 'Fira Code', monospace; }
+        .line-explanation { color: #64748b; font-size: 0.85rem; border-left: 2px solid #cbd5e1; padding-left: 10px; margin-top: 5px; }
+    </style>
+</head>
+<body class="p-4 md:p-8">
+
+    <div class="max-w-4xl mx-auto">
+        <header class="text-center mb-12">
+            <h1 class="text-4xl font-extrabold text-slate-900 mb-2">C Programming: Mid-Sem 2 Preparation</h1>
+            <p class="text-slate-500 italic">Engineering Semester 1 • Core Concepts & Syntax</p>
+        </header>
+
+        <!-- 1. Call by Value -->
+        <section class="topic-card">
+            <h2 class="text-2xl font-bold mb-4 text-blue-700">1. Call by Value</h2>
+            <p class="mb-4">
+                Call by value is a method where the actual parameter's value is copied into the formal parameter of the function. 
+                In this approach, the function creates a new memory space for its local variables to store these copies. 
+                Because the function works on a duplicate, any changes made inside the function body do not affect the original variables. 
+                This ensures high data security as the caller's data remains immutable and protected from side effects. 
+                It is the default behavior in C for passing standard data types like integers, characters, and floating-point numbers. 
+                While safe, it can cause memory overhead if the data being passed is extremely large, such as massive structures. 
+                This method is ideal when the function needs to perform a calculation without modifying the source input. 
+                The lifecycle of the copied variables ends once the function completes its execution and returns control.
+            </p>
+            <h3 class="font-semibold">Syntax:</h3>
+            <pre><code>void func(int x); // Declaration
+func(val);        // Call</code></pre>
+            <h3 class="font-semibold">Example:</h3>
+            <pre><code>void change(int n) { n = 20; }
+int main() {
+    int x = 10;
+    change(x); // Passing x by value
+    printf("%d", x); // Output: 10
+}</code></pre>
+            <p class="line-explanation">The original variable 'x' remains 10 because the function only changed its local copy.</p>
+        </section>
+
+        <!-- 2. Call by Reference -->
+        <section class="topic-card" style="border-left-color: #10b981;">
+            <h2 class="text-2xl font-bold mb-4 text-emerald-700">2. Call by Reference</h2>
+            <p class="mb-4">
+                Call by reference involves passing the memory address of the actual parameters to the function using pointers. 
+                Instead of creating a copy, the formal parameters act as pointers that point directly to the original data's location. 
+                This allows the function to access and modify the original variables in the calling function's scope using dereferencing. 
+                Any update made through the pointer is immediately reflected globally, as both the caller and callee share the same memory. 
+                It is highly memory-efficient for passing large arrays or complex structures since only the address is transmitted. 
+                This technique is frequently used when a function needs to "return" more than one value by updating multiple variables. 
+                However, it requires careful pointer management to avoid accessing unauthorized memory or causing program crashes. 
+                It is the standard way to implement efficient swapping and data manipulation in low-level engineering applications.
+            </p>
+            <h3 class="font-semibold">Syntax:</h3>
+            <pre><code>void func(int *p); // Declaration
+func(&val);        // Call</code></pre>
+            <h3 class="font-semibold">Example:</h3>
+            <pre><code>void change(int *p) { *p = 20; }
+int main() {
+    int x = 10;
+    change(&x); // Passing address of x
+    printf("%d", x); // Output: 20
+}</code></pre>
+            <p class="line-explanation">The value of 'x' changes to 20 because the function accessed its memory address directly.</p>
+        </section>
+
+        <!-- 3. Bubble Sort -->
+        <section class="topic-card" style="border-left-color: #f59e0b;">
+            <h2 class="text-2xl font-bold mb-4 text-amber-700">3. Bubble Sort</h2>
+            <p class="mb-4">
+                Bubble Sort is a basic sorting algorithm that works by repeatedly swapping adjacent elements if they are in the wrong order. 
+                The algorithm traverses the array multiple times, and in each pass, the largest unsorted element "bubbles up" to its correct position. 
+                It uses nested loops: the outer loop tracks the number of passes, while the inner loop performs the comparisons. 
+                If the element at the current index is greater than the next element, a temporary variable is used to swap them. 
+                While simple to write and understand, its time complexity is O(n²), making it inefficient for large datasets. 
+                It is a "stable" sorting algorithm, meaning it maintains the relative order of elements with equal values. 
+                Engineering students use it to learn the logic of array manipulation and the concept of nested iteration. 
+                After each complete pass of the inner loop, at least one more element is guaranteed to be in its final sorted spot.
+            </p>
+            <h3 class="font-semibold">Syntax:</h3>
+            <pre><code>for(i=0; i<n-1; i++) {
+    for(j=0; j<n-i-1; j++) {
+        if(a[j] > a[j+1]) { /* Swap */ }
+    }
+}</code></pre>
+            <h3 class="font-semibold">Example:</h3>
+            <pre><code>int a[] = {5, 1, 4};
+// Pass 1: 1, 4, 5 (Largest value '5' bubbles to the end)
+// Result: {1, 4, 5}</code></pre>
+            <p class="line-explanation">The largest values move to the end of the array step-by-step through adjacent swaps.</p>
+        </section>
+
+        <!-- 4. Selection Sort -->
+        <section class="topic-card" style="border-left-color: #06b6d4;">
+            <h2 class="text-2xl font-bold mb-4 text-cyan-700">4. Selection Sort</h2>
+            <p class="mb-4">
+                Selection Sort organizes an array by repeatedly finding the minimum element from the unsorted part and moving it to the front. 
+                The algorithm divides the array into two logical segments: the sorted part at the beginning and the unsorted part at the end. 
+                In each iteration, the algorithm searches the entire unsorted segment to identify the smallest value's index. 
+                Once the minimum is found, it is swapped with the first element of the unsorted segment, expanding the sorted portion. 
+                This process continues until the entire array is processed, effectively "selecting" the correct item for each position. 
+                Compared to bubble sort, it usually performs fewer swaps, which can be advantageous in certain memory-constrained environments. 
+                However, its time complexity remains O(n²), similar to other basic sorting methods taught in the first semester. 
+                It is an "in-place" algorithm, meaning it does not require additional memory storage to perform the sorting task.
+            </p>
+            <h3 class="font-semibold">Syntax:</h3>
+            <pre><code>for(i=0; i<n-1; i++) {
+    min = i;
+    for(j=i+1; j<n; j++) {
+        if(a[j] < a[min]) min = j;
+    }
+    /* Swap a[i] and a[min] */
+}</code></pre>
+            <h3 class="font-semibold">Example:</h3>
+            <pre><code>int a[] = {20, 12, 10};
+// Step 1: Find 10 (minimum), swap with 20 at index 0
+// Result: {10, 12, 20}</code></pre>
+            <p class="line-explanation">The smallest number is selected from the unsorted group and swapped into its correct place.</p>
+        </section>
+
+        <!-- 5. Insertion Sort -->
+        <section class="topic-card" style="border-left-color: #ec4899;">
+            <h2 class="text-2xl font-bold mb-4 text-pink-700">5. Insertion Sort</h2>
+            <p class="mb-4">
+                Insertion Sort works by taking one element at a time and inserting it into its correct relative position within a sorted sub-list. 
+                The algorithm iterates through the array starting from the second element, treating the first element as a sorted sub-array. 
+                For each new element, it compares it against the elements in the sorted portion and shifts larger elements to the right. 
+                This shifting creates a "hole" where the current element (the key) is eventually placed once its correct spot is found. 
+                It is highly efficient for small datasets or arrays that are already mostly sorted, showing O(n) performance in best cases. 
+                The logic is analogous to sorting a hand of playing cards, where you pick a card and slide it into the right gap. 
+                It is a stable and in-place sorting method, making it a robust choice for basic engineering programming tasks. 
+                It is frequently used as a building block for more complex algorithms like Shell Sort or hybrid sorting methods.
+            </p>
+            <h3 class="font-semibold">Syntax:</h3>
+            <pre><code>for(i=1; i<n; i++) {
+    key = a[i]; j = i-1;
+    while(j>=0 && a[j]>key) {
+        a[j+1] = a[j]; j--;
+    }
+    a[j+1] = key;
+}</code></pre>
+            <h3 class="font-semibold">Example:</h3>
+            <pre><code>int a[] = {12, 11, 13};
+// Element 11 is picked and inserted before 12
+// Result: {11, 12, 13}</code></pre>
+            <p class="line-explanation">Elements are shifted right to create a space for the current 'key' value being sorted.</p>
+        </section>
+
+        <!-- 6. Function Declaration (Prototype) -->
+        <section class="topic-card" style="border-left-color: #6366f1;">
+            <h2 class="text-2xl font-bold mb-4 text-indigo-700">6. Function Declaration (Prototype)</h2>
+            <p class="mb-4">
+                Function declaration, also known as a prototype, informs the compiler about a function's name, return type, and parameters. 
+                It serves as a forward announcement that allows the compiler to verify function calls even if the body is defined later. 
+                A declaration must include the return data type, such as int or void, followed by the function identifier and parentheses. 
+                Inside the parentheses, the types of arguments are listed, though the names of the parameters are technically optional. 
+                A semicolon is mandatory at the end of a declaration to distinguish it from a function definition or implementation. 
+                Declarations are typically placed at the top of the C file or within a header file for modular programming. 
+                Without a declaration, the compiler might assume an incorrect return type, leading to warnings or compilation errors. 
+                It ensures that the function signature is consistent throughout the entire program during the linking phase.
+            </p>
+            <h3 class="font-semibold">Syntax:</h3>
+            <pre><code>return_type function_name(parameter_types); </code></pre>
+            <h3 class="font-semibold">Example:</h3>
+            <pre><code>int add(int a, int b); // Declares addition function
+void display();        // Declares print function</code></pre>
+            <p class="line-explanation">The prototype tells the compiler what inputs to expect and what output the function will provide.</p>
+        </section>
+
+        <!-- 7. Function Definition -->
+        <section class="topic-card" style="border-left-color: #a855f7;">
+            <h2 class="text-2xl font-bold mb-4 text-purple-700">7. Function Definition</h2>
+            <p class="mb-4">
+                The function definition contains the actual block of code that performs the intended task when the function is executed. 
+                It consists of a header—identical to the declaration—followed by the function body enclosed in curly braces. 
+                The body contains local variable declarations and the logical statements required to produce the desired result. 
+                If the function has a return type other than void, it must include a return statement to send data back to the caller. 
+                Defining a function promotes modularity, allowing programmers to write code once and reuse it multiple times. 
+                It helps in hiding complex implementation details, as the caller only needs to know the interface, not the inner logic. 
+                A well-defined function should ideally perform one specific task to maintain high clarity and ease of debugging. 
+                In large-scale engineering projects, functions act as the building blocks for creating more sophisticated software architectures.
+            </p>
+            <h3 class="font-semibold">Syntax:</h3>
+            <pre><code>return_type name(params) { 
+    // code body 
+    return val; 
+}</code></pre>
+            <h3 class="font-semibold">Example:</h3>
+            <pre><code>int square(int n) {
+    return n * n; // Logic to calculate square
+}</code></pre>
+            <p class="line-explanation">The definition specifies the exact math and logic needed to calculate the square of a number.</p>
+        </section>
+
+        <!-- 8. Function Call -->
+        <section class="topic-card" style="border-left-color: #f43f5e;">
+            <h2 class="text-2xl font-bold mb-4 text-rose-700">8. Function Call</h2>
+            <p class="mb-4">
+                A function call is a statement that instructs the CPU to jump to the function's definition and execute its code. 
+                To invoke a function, the programmer writes its name followed by the actual arguments enclosed in parentheses. 
+                During a call, control is transferred from the current function (usually main) to the called function's entry point. 
+                Once the function completes its task or hits a return statement, the control returns to the line following the call. 
+                If the function returns a value, the call can be part of an expression or assigned to a variable for further use. 
+                The arguments provided in the call must match the order and data types specified in the function's declaration. 
+                A function can be called multiple times from different locations, significantly reducing code redundancy. 
+                This mechanism is essential for controlling the program's flow and organizing tasks into logical, sequential operations.
+            </p>
+            <h3 class="font-semibold">Syntax:</h3>
+            <pre><code>function_name(arguments); </code></pre>
+            <h3 class="font-semibold">Example:</h3>
+            <pre><code>int main() {
+    int res = square(5); // Activating the square function
+    printf("%d", res);
+}</code></pre>
+            <p class="line-explanation">The call triggers the execution of 'square' and stores the returned value into 'res'.</p>
+        </section>
+
+        <!-- 9. Categories of Function (Types) -->
+        <section class="topic-card" style="border-left-color: #64748b;">
+            <h2 class="text-2xl font-bold mb-4 text-slate-700">9. Categories of Function (Types)</h2>
+            <p class="mb-4">
+                Functions in C are primarily categorized into four types based on the presence or absence of arguments and return values. 
+                Type 1 includes functions with no arguments and no return value, suitable for simple tasks like displaying a static message. 
+                Type 2 consists of functions with arguments but no return value, used when data needs to be processed without returning a result. 
+                Type 3 features functions with no arguments but a return value, which are often used to fetch user input or system data. 
+                Type 4, the most common, includes functions with both arguments and a return value, providing maximum flexibility and logic flow. 
+                The choice of category depends on the specific requirement of the program and how data needs to move between modules. 
+                Understanding these types helps engineers design structured, memory-efficient, and logically sound software components. 
+                Each category represents a different way for a program module to interface with other parts of the system.
+            </p>
+            <h3 class="font-semibold">Syntax:</h3>
+            <pre><code>void type1(void);      // No Arg, No Return
+void type2(int a);     // With Arg, No Return
+int type3(void);       // No Arg, With Return
+int type4(int a);      // With Arg, With Return</code></pre>
+            <h3 class="font-semibold">Example (Type 4):</h3>
+            <pre><code>int cube(int n) {
+    return n * n * n; // Processes input and returns result
+}</code></pre>
+            <p class="line-explanation">This Type 4 function accepts an integer 'n' as input and returns its cubic value as output.</p>
+        </section>
+
+        <footer class="text-center text-slate-400 text-sm mt-8 pb-12">
+            Best of luck with your Mid-Sem 2 exams!
+        </footer>
+    </div>
+
+</body>
+</html>

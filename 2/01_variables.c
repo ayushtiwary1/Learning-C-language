@@ -1,6 +1,8 @@
 #include <stdio.h> 
 int main() {
     int a, b, c;
+    //this will be used a print function for those strings
+    
     printf("Enter your length of the cuboid");
     scanf("%d", &a);
     printf("Enter your breadth of the cuboid");

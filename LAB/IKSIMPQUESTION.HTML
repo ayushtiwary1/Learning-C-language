@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IKS Semester 1 Study Guide</title>
+    <style>
+        :root {
+            --primary-saffron: #CD5C08; /* Deep Saffron */
+            --primary-dark: #8B3A05;
+            --accent-blue: #1A237E; /* Navy Blue */
+            --bg-cream: #FFF8E1; /* Parchment/Cream */
+            --text-dark: #2C2C2C;
+            --card-bg: #FFFFFF;
+            --border-gold: #DAA520;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-cream);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--primary-saffron);
+            color: white;
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        h1 {
+            font-family: 'Georgia', serif;
+            font-size: 1.5rem;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1rem;
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: background 0.3s;
+        }
+
+        nav a:hover {
+            background-color: var(--primary-dark);
+        }
+
+        /* Main Content */
+        main {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        section {
+            margin-bottom: 4rem;
+            scroll-margin-top: 100px; /* For sticky header offset */
+        }
+
+        .subject-title {
+            color: var(--accent-blue);
+            font-family: 'Georgia', serif;
+            border-bottom: 3px solid var(--border-gold);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+        }
+
+        /* Q&A Cards */
+        .qa-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        .qa-card {
+            background: var(--card-bg);
+            border-left: 5px solid var(--primary-saffron);
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            transition: transform 0.2s;
+        }
+
+        .qa-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .question {
+            font-weight: bold;
+            color: var(--primary-dark);
+            margin-bottom: 0.8rem;
+            font-size: 1.1rem;
+        }
+
+        .answer {
+            text-align: justify;
+            color: #444;
+        }
+
+        /* MCQ Section */
+        .mcq-section {
+            margin-top: 2rem;
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            border: 1px solid var(--border-gold);
+        }
+
+        .mcq-title {
+            color: var(--primary-dark);
+            border-bottom: 2px solid #eee;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: var(--accent-blue);
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background-color: var(--accent-blue);
+            color: white;
+            margin-top: 4rem;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            nav ul {
+                gap: 10px;
+                font-size: 0.9rem;
+            }
+            
+            .subject-title {
+                font-size: 1.5rem;
+            }
+
+            th, td {
+                font-size: 0.9rem;
+                padding: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-content">
+            <h1>IKS Semester 1 Study Guide</h1>
+            <nav>
+                <ul>
+                    <li><a href="#chemistry">Chemistry</a></li>
+                    <li><a href="#biology">Biology</a></li>
+                    <li><a href="#metallurgy">Metallurgy</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- CHEMISTRY SECTION -->
+        <section id="chemistry">
+            <h2 class="subject-title">Chemistry (Rasayan Shastra)</h2>
+            <div class="qa-container">
+                <div class="qa-card">
+                    <div class="question">Q1. Preservation methods of food in ancient time.</div>
+                    <div class="answer">
+                        Ancient Indian food preservation was deeply rooted in using natural antimicrobial agents found in the kitchen pharmacy. Common methods included <strong>Salting (Lavana)</strong> and <strong>Drying (Shushkana)</strong> to remove moisture and inhibit bacterial growth. Spices like <strong>Turmeric (Haridra)</strong> and Mustard oil were used for pickling due to their antiseptic properties. Preservation by fermentation, known as <em>Sandhana Kalpana</em>, created formulations like <em>Asavas</em> and <em>Arishtas</em> which preserved medicinal properties for years using self-generated alcohol. Ghee and honey were also primary mediums to preserve herbal potency without refrigeration.
+                    </div>
+                </div>
+
+                <div class="qa-card">
+                    <div class="question">Q2. What is Rasayans?</div>
+                    <div class="answer">
+                        In the Indian Knowledge System, <strong>Rasayana</strong> is a specialized branch of Ayurveda and proto-chemistry (Alchemy). Etymologically, it combines <em>Rasa</em> (nutrient fluid/essence/mercury) and <em>Ayana</em> (path/transport). It refers to the science of rejuvenation, aiming to lengthen lifespan, boost immunity, and improve mental faculties. In the context of <em>Rasashastra</em> (Indian Alchemy), it also implies the transmutation of lower metals into noble metals (Gold) using Mercury (Parada), serving as a metaphor for spiritual liberation and bodily perfection (Deha-vedha).
+                    </div>
+                </div>
+
+                <div class="qa-card">
+                    <div class="question">Q3. Principle of Rasayans treatment Ayurveda.</div>
+                    <div class="answer">
+                        The fundamental principle of Rasayana treatment is to improve the quality of <em>Rasa Dhatu</em> (the primary nutritive plasma) which subsequently nourishes all other tissues (blood, muscle, bone, etc.). It works on the concept of enriching <em>Ojas</em> (vital essence) and balancing the Tridoshas. The treatment is administered in two modes: <em>Kuti Praveshika</em> (strictly indoor, isolated retreat for cellular transformation) and <em>Vatatapika</em> (outdoor, lifestyle-integrated method). It aims not just at curing disease, but at halting the degeneration process of aging (*Jara*).
+                    </div>
+                </div>
+
+                <div class="qa-card">
+                    <div class="question">Q4. What is Mandura in Rasa Tarangini?</div>
+                    <div class="answer">
+                        In the classical text <em>Rasa Tarangini</em>, <strong>Mandura</strong> refers to iron rust or slag, chemically recognized today as Ferric Oxide. It is considered a mild yet potent mineral medicine. Before use, it undergoes rigorous purification (*Shodhana*) using cow urine (Gomutra) and incineration (*Marana*) to convert it into a bio-assimilable nano-medicine called <em>Mandura Bhasma</em>. It is famously used in treating <em>Pandu Roga</em> (Iron Deficiency Anemia), liver disorders, and edema, showcasing ancient knowledge of mineral pharmacology.
+                    </div>
+                </div>
+
+                <div class="qa-card">
+                    <div class="question">Q5. How did metallurgy develop in ancient time?</div>
+                    <div class="answer">
+                        Indian metallurgy evolved from the Harappan utilization of Copper and Bronze (c. 3000 BCE) to the sophisticated Iron Age in the Vedic period (c. 1500 BCE). The Rig Veda mentions <em>Ayas</em> (metal), differentiating between <em>Krishna Ayas</em> (Iron) and <em>Lohita Ayas</em> (Copper). India pioneered high-temperature control essential for Zinc distillation (Zawar mines, Rajasthan) centuries before the West. The development moved from simple cold hammering to complex casting methods like <em>Madhu-uchchhista vidhana</em> (lost-wax technique) and crucible steel production, establishing India as a metallurgical powerhouse.
+                    </div>
+                </div>
+
+                <div class="qa-card">
+                    <div class="question">Q6. Describe traditional Indian knowledge in chemistry and its application.</div>
+                    <div class="answer">
+                        Traditional Chemistry, or <em>Rasashastra</em>, was highly applied rather than just theoretical. Key applications included: 1) <strong>Medicinal Chemistry:</strong> Creating <em>Bhasmas</em> (nano-calcined metals) for curing diseases. 2) <strong>Dyes and Pigments:</strong> Mastery over Indigo (Neel) extraction and mordants for color fixing on textiles. 3) <strong>Construction:</strong> Use of complex lime mortars mixed with organic additives (jaggery, egg whites) for temples. 4) <strong>Perfumes:</strong> The art of <em>Gandhayukti</em> described in <em>Brihat Samhita</em> detailed creating scents. Nagarjuna is often revered as the father of Indian Chemistry.
+                    </div>
+                </div>
+
+                <div class="qa-card">
+                    <div class="question">Q7. Role of alchemy in ancient chemistry.</div>
+                    <div class="answer">
+                        Alchemy (*Rasashastra*) was the driving force behind the evolution of chemical laboratory techniques in ancient India. Unlike Western alchemy which focused heavily on making gold for wealth, Indian alchemy focused on <strong>Deha-vedha</strong> (immortality/strengthening the body) alongside <strong>Loha-vedha</strong> (transmutation of metals). This pursuit led to the invention of various apparatus (*Yantras*), sublimation processes, and the classification of substances into *Maharasas* and *Uparasas*. It provided the foundation for iatrochemistry (mineral-based medicine) used in Ayurveda today.
+                    </div>
+                </div>
+            </div>
+
+            <!-- CHEMISTRY MCQS -->
+            <div class="mcq-section">
+                <h3 class="mcq-title">Chemistry Proficiency Quiz</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Question</th>
+                            <th>Correct Answer</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1. Which text is a primary source for chemical processes like rust usage?</td>
+                            <td>Rasa Tarangini</td>
+                        </tr>
+                        <tr>
+                            <td>2. 'Mandura' is chemically associated with which metal?</td>
+                            <td>Iron</td>
+                        </tr>
+                        <tr>
+                            <td>3. 'Kuti Praveshika' is a method of which therapy?</td>
+                            <td>Rasayana</td>
+                        </tr>
+                        <tr>
+                            <td>4. Who is considered the father of Indian Chemistry/Alchemy?</td>
+                            <td>Nagarjuna</td>
+                        </tr>
+                        <tr>
+                            <td>5. 'Krishna Ayas' in Vedas refers to:</td>
+                            <td>Iron</td>
+                        </tr>
+                        <tr>
+                            <td>6. The preservation method 'Sandhana' refers to:</td>
+                            <td>Fermentation</td>
+                        </tr>
+                        <tr>
+                            <td>7. Which mines are famous for ancient Zinc distillation?</td>
+                            <td>Zawar Mines</td>
+                        </tr>
+                        <tr>
+                            <td>8. 'Gandhayukti' refers to the science of:</td>
+                            <td>Perfumery</td>
+                        </tr>
+                        <tr>
+                            <td>9. 'Bhasma' refers to:</td>
+                            <td>Calcined/Incinerated ash of metals</td>
+                        </tr>
+                        <tr>
+                            <td>10. The lost-wax casting technique is called:</td>
+                            <td>Madhu-uchchhista vidhana</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- BIOLOGY SECTION -->
+        <section id="biology">
+            <h2 class="subject-title">Biology (Jiva Shastra)</h2>
+            <div class="qa-container">
+                <div class="qa-card">
+                    <div class="question">Q1. Describe the concept of Pancha Mahabhutas and their role in Ayurveda.</div>
+                    <div class="answer">
+                        The <em>Pancha Mahabhutas</em> are the five primordial elements: <strong>Akasha (Space), Vayu (Air), Agni (Fire), Jala (Water), and Prithvi (Earth)</strong>. Ayurveda posits that the human body is a microcosm of the universe (*Yatha Pinde Tatha Brahmande*), composed of these same five elements. Health is the equilibrium of these elements, while disease is their imbalance. They combine to form the three biological humors (*Doshas*): Vayu+Akasha=Vata, Agni+Jala=Pitta, and Jala+Prithvi=Kapha, governing all physiological processes.
+                    </div>
+                </div>
+
+                <div class="qa-card">
+                    <div class="question">Q2. Write short notes on Tulsi, Turmeric, and Ashwagandha.</div>
+                    <div class="answer">
+                        <strong>Tulsi (Holy Basil):</strong> Considered the "Queen of Herbs," it is sacred in IKS and scientifically proven as a powerful adaptogen, antimicrobial, and respiratory aid. <br>
+                        <strong>Turmeric (Haridra):</strong> Contains curcumin; used since Vedic times as a blood purifier, anti-inflammatory agent, and skin healer (Varnya). <br>
+                        <strong>Ashwagandha:</strong> Known as "Indian Ginseng," it is a premier <em>Rasayana</em> herb that builds strength (*Balya*), reduces stress, and enhances neuro-function.
+                    </div>
+                </div>
+
+                <div class="qa-card">
+                    <div class="question">Q3. Explain the ecological importance of flora and fauna for human life.</div>
+                    <div class="answer">
+                        In IKS, ecology is maintained through *Rta* (Cosmic Order). Flora and fauna are not just resources but kin. *Vrikshayurveda* highlights the importance of trees for rainfall and soil health. Animals serve as *Vahanas* (vehicles) for deities, ensuring their protection (e.g., Tiger, Peacock). Humans depend on flora for oxygen and medicine (*Oushadhi*), and fauna for dairy and agriculture. The symbiotic relationship is emphasized in the concept of *Vasudhaiva Kutumbakam*—the world is one family.
+                    </div>
+                </div>
+
+                <div class="qa-card">
+                    <div class="question">Q4. Explain ancient Ayurvedic texts (Charaka, Sushruta, Ashtanga Hridaya).</div>
+                    <div class="answer">
+                        These three texts form the *Brihat-Trayi* (Great Trio) of Ayurveda. <br>
+                        <strong>Charaka Samhita:</strong> Focuses on *Kayachikitsa* (Internal Medicine), diagnostics, and logic. <br>
+                        <strong>Sushruta Samhita:</strong> The foundational text of *Shalya Tantra* (Surgery), detailing rhinoplasty, surgical instruments, and anatomy. <br>
+                        <strong>Ashtanga Hridaya:</strong> Written by Vagbhata, it synthesizes the wisdom of both Charaka and Sushruta into a concise, poetic format, focusing on practical clinical application.
+                    </div>
+                </div>
+
+                <div class="qa-card">
+                    <div class="question">Q5. Describe different types of fossils with examples? Differentiate between zoopaleontology and palaeobotany.</div>
+                    <div class="answer">
+                        While "fossil" is a modern term, ancient India recognized petrified forms as <em>Ashman</em> (stone). Types include <strong>Body Fossils</strong> (bones/shells) and <strong>Trace Fossils</strong> (footprints). <br>
+                        <strong>Zoopaleontology:</strong> Study of animal fossils. Ancient finds in the Shivalik hills (like ancestors of elephants/apes) relate to this. <br>
+                        <strong>Palaeobotany:</strong> Study of plant fossils (petrified wood, leaf impressions). Indian scientist Birbal Sahni made significant contributions here, linking modern science to the geological history of the Indian subcontinent.
+                    </div>
+                </div>
+
+                <div class="qa-card">
+                    <div class="question">Q6. Write a note on modern techniques used in fossil studies.</div>
+                    <div class="answer">
+                        To understand the biological history of the Indian subcontinent, modern techniques are employed. <strong>Radiocarbon Dating (C-14):</strong> Used for organic remains up to 50,000 years old. <strong>Stratigraphy:</strong> Studying rock layers to determine relative age. <strong>Electron Microscopy:</strong> For analyzing micro-fossils. <strong>DNA Analysis:</strong> Extracting genetic material from well-preserved specimens. These techniques help validate the timeline of civilizations and flora/fauna described in ancient narratives.
+                    </div>
+                </div>
+
+                <div class="qa-card">
+                    <div class="question">Q7. Describe in detail the three doshas and explain how their imbalance leads to disease.</div>
+                    <div class="answer">
+                        <strong>Vata (Air+Space):</strong> Governs movement, nerve impulses, and respiration. Imbalance leads to anxiety, pain, and dryness. <br>
+                        <strong>Pitta (Fire+Water):</strong> Governs metabolism, digestion, and temperature. Imbalance leads to inflammation, acidity, and anger. <br>
+                        <strong>Kapha (Earth+Water):</strong> Governs structure, lubrication, and stability. Imbalance leads to congestion, obesity, and lethargy. <br>
+                        Disease (*Roga*) occurs when the natural equilibrium (*Prakriti*) is disturbed (*Vikriti*) due to diet, lifestyle, or environment.
+                    </div>
+                </div>
+
+                <div class="qa-card">
+                    <div class="question">Q8. Concept of man–nature interrelation? Explain two traditional forest conservation methods.</div>
+                    <div class="answer">
+                        IKS views man and nature as inseparable (*Purusha* and *Prakriti*). Exploiting nature is seen as injuring oneself. <br>
+                        <strong>Method 1: Sacred Groves (Devarai/Kavu):</strong> Patches of forest dedicated to deities where no logging or hunting is allowed, preserving biodiversity hotspots. <br>
+                        <strong>Method 2: Totemism and Tree Worship:</strong> Species like Peepal (Ficus religiosa) and Banyan are worshipped and forbidden to cut. This cultural taboo acts as a strict conservation law.
+                    </div>
+                </div>
+            </div>
+
+            <!-- BIOLOGY MCQS -->
+            <div class="mcq-section">
+                <h3 class="mcq-title">Biology Proficiency Quiz</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Question</th>
+                            <th>Correct Answer</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1. Which element combination forms 'Pitta' dosha?</td>
+                            <td>Fire + Water</td>
+                        </tr>
+                        <tr>
+                            <td>2. Sushruta Samhita is primarily famous for:</td>
+                            <td>Surgery (Shalya Tantra)</td>
+                        </tr>
+                        <tr>
+                            <td>3. 'Vrikshayurveda' deals with:</td>
+                            <td>Plant Science/Health</td>
+                        </tr>
+                        <tr>
+                            <td>4. The 'Great Trio' of Ayurvedic texts is called:</td>
+                            <td>Brihat-Trayi</td>
+                        </tr>
+                        <tr>
+                            <td>5. Sacred Groves in India are known as:</td>
+                            <td>Devarai / Kavu</td>
+                        </tr>
+                        <tr>
+                            <td>6. Ashwagandha is primarily classified as:</td>
+                            <td>Rasayana (Rejuvenator)</td>
+                        </tr>
+                        <tr>
+                            <td>7. Which Dosha governs movement and nerve impulses?</td>
+                            <td>Vata</td>
+                        </tr>
+                        <tr>
+                            <td>8. Who wrote Ashtanga Hridaya?</td>
+                            <td>Vagbhata</td>
+                        </tr>
+                        <tr>
+                            <td>9. The study of plant fossils is called:</td>
+                            <td>Palaeobotany</td>
+                        </tr>
+                        <tr>
+                            <td>10. 'Yatha Pinde Tatha Brahmande' means:</td>
+                            <td>As is the body, so is the universe</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- METALLURGY SECTION -->
+        <section id="metallurgy">
+            <h2 class="subject-title">Metallurgy (Dhatu Shastra)</h2>
+            <div class="qa-container">
+                <div class="qa-card">
+                    <div class="question">Q1. What is metallurgy?</div>
+                    <div class="answer">
+                        Metallurgy is the science and technology of extracting metals (*Dhatu*) from their ores and modifying them for use. In the Indian Knowledge System, it is not merely physical extraction but involves spiritual and chemical purification (*Shodhana*). It encompasses mining, smelting, refining, and alloying. The Sanskritic tradition views ores as "raw" earth that must be "cooked" or processed (Agni-kriya) to release the essence (metal) within, primarily described in texts like *Rasaratnasamuchchaya*.
+                    </div>
+                </div>
+
+                <div class="qa-card">
+                    <div class="question">Q2. How metallurgy expanded in ancient India.</div>
+                    <div class="answer">
+                        Metallurgy in India expanded from the Chalcolithic cultures (Copper Age) of the Indus Valley to the highly advanced Iron Age of the Gangetic plains. The discovery of rich mineral deposits in the Chota Nagpur plateau accelerated this. By the 1st millennium BCE, India was exporting high-quality steel (Wootz) to the Roman and Arab worlds. The expansion was driven by the need for agricultural tools (ploughshares), weaponry, and temple architecture, supported by a caste of specialized artisans (*Lohakara*).
+                    </div>
+                </div>
+
+                <div class="qa-card">
+                    <div class="question">Q3. How was metallurgy used in ancient India, with examples.</div>
+                    <div class="answer">
+                        Metallurgy had ubiquitous applications: <strong>1) Ritualistic:</strong> <em>Panchaloha</em> idols (alloy of Gold, Silver, Copper, Zinc, Iron) were cast for temples. <strong>2) Medical:</strong> Copper vessels for water storage (oligodynamic effect) and Gold/Silver leaf in food. <strong>3) Warfare:</strong> The flexible yet sharp Damascus swords were made from Indian Wootz steel. <strong>4) Architecture:</strong> Iron beams were used in the Konark Sun Temple to support massive structures, showcasing structural engineering capabilities.
+                    </div>
+                </div>
+
+                <div class="qa-card">
+                    <div class="question">Q4. Who introduced first coin system, when and how.</div>
+                    <div class="answer">
+                        The first organized coinage system in India was the <strong>Punch-Marked Coins</strong> (*Karshapana* or *Puranas*), introduced around the 6th Century BCE by the <strong>Mahajanapadas</strong> (specifically Magadha and Gandhara). Unlike cast coins, these were pieces of silver or copper cut to a specific weight standard (based on the <em>Ratti</em> seed - *Gunja*) and punched with symbols like bulls, hills, or suns using separate dies. This marked a shift from the barter system to a standardized metallic economy.
+                    </div>
+                </div>
+
+                <div class="qa-card">
+                    <div class="question">Q5. How was iron forged and used with which techniques in ancient India?</div>
+                    <div class="answer">
+                        Ancient India is renowned for <strong>Wootz Steel</strong> (*Ukku* in Kannada/Telugu). The technique involved the <strong>Crucible Process</strong>: Iron was packed with carbon-rich biomass (leaves/wood) in sealed clay crucibles and heated to high temperatures. This facilitated carburization, creating high-carbon steel with a specific crystalline structure. Forging involved repeated heating and hammering to remove slag and align the grain structure, resulting in metal known for its toughness and sharpness.
+                    </div>
+                </div>
+
+                <div class="qa-card">
+                    <div class="question">Q6. How was Iron Pillar of Ashoka made, why it doesn't rust.</div>
+                    <div class="answer">
+                        The Iron Pillar of Delhi (Gupta period, c. 400 CE) was made using a <strong>Forge Welding</strong> technique, where heated lumps of sponge iron were hammered together—not cast. Its rust resistance is due to: 1) High Phosphorous content (unlike modern steel where P is removed), 2) Lack of Manganese/Sulphur, and 3) Use of charcoal. This specific composition promotes the formation of a protective passive layer called <strong>Misawite</strong> (iron hydrogen phosphate hydrate) which prevents further corrosion.
+                    </div>
+                </div>
+
+                <div class="qa-card">
+                    <div class="question">Q7. Explain the process and types of melting and forging different metals.</div>
+                    <div class="answer">
+                        Ancient smiths used specialized furnaces called <em>Koshthi</em> and crucibles called <em>Musa</em> (made of burnt clay and charred husk).
+                        <strong>Melting:</strong> Used for Bronze/Gold. The *Lost-Wax technique* (*Cire Perdue*) involved creating a wax model, covering it in clay, melting the wax out, and pouring molten metal into the void.
+                        <strong>Forging:</strong> Used for Iron. Sponge iron extracted from the furnace was not fully molten; it was red-hot and spongy, requiring hammering to squeeze out slag impurities and shape the metal (*Thattuva* technique).
+                    </div>
+                </div>
+            </div>
+
+            <!-- METALLURGY MCQS -->
+            <div class="mcq-section">
+                <h3 class="mcq-title">Metallurgy Proficiency Quiz</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Question</th>
+                            <th>Correct Answer</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1. The famous Indian steel exported globally was known as:</td>
+                            <td>Wootz Steel</td>
+                        </tr>
+                        <tr>
+                            <td>2. The main reason for the Iron Pillar's rust resistance is high content of:</td>
+                            <td>Phosphorous</td>
+                        </tr>
+                        <tr>
+                            <td>3. 'Panchaloha' idols consist of how many metals?</td>
+                            <td>Five</td>
+                        </tr>
+                        <tr>
+                            <td>4. The earliest Indian coins were known as:</td>
+                            <td>Punch-marked coins (Karshapana)</td>
+                        </tr>
+                        <tr>
+                            <td>5. 'Musa' in ancient metallurgy refers to:</td>
+                            <td>Crucible</td>
+                        </tr>
+                        <tr>
+                            <td>6. The standard weight unit for ancient coins was based on:</td>
+                            <td>Ratti (Gunja seeds)</td>
+                        </tr>
+                        <tr>
+                            <td>7. Which period marked the significant use of Iron in India?</td>
+                            <td>Vedic Period</td>
+                        </tr>
+                        <tr>
+                            <td>8. The Iron Pillar of Delhi is located in:</td>
+                            <td>Qutub Minar Complex</td>
+                        </tr>
+                        <tr>
+                            <td>9. The chemical compound protecting the Iron Pillar is:</td>
+                            <td>Misawite</td>
+                        </tr>
+                        <tr>
+                            <td>10. 'Loha' generally refers to:</td>
+                            <td>Metal (specifically Iron)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Department of Indian Knowledge Systems. Designed for B.Tech Semester 1.</p>
+    </footer>
+
+</body>
+</html>

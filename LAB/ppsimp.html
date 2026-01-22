@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JUT PPS Study Guide | BIT Sindri Edition</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; color: #0f172a; scroll-behavior: smooth; }
+        code, pre { font-family: 'Fira Code', monospace; }
+        .glass-card { background: white; border: 1px solid #e2e8f0; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1); transition: transform 0.2s; }
+        .glass-card:hover { transform: translateY(-2px); }
+        .gradient-text { background: linear-gradient(90deg, #1d4ed8, #7e22ce); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .section-title { position: relative; display: inline-block; padding-bottom: 8px; }
+        .section-title::after { content: ''; position: absolute; bottom: 0; left: 0; width: 60px; height: 4px; background: #2563eb; border-radius: 2px; }
+        pre { scrollbar-width: thin; scrollbar-color: #cbd5e1 transparent; }
+    </style>
+</head>
+<body class="p-4 md:p-10 bg-slate-50">
+
+    <header class="max-w-5xl mx-auto mb-16 text-center">
+        <h1 class="text-5xl font-black mb-4 gradient-text">PPS Mid-Sem Master Guide</h1>
+        <p class="text-slate-500 font-medium tracking-wide">Essential Prep for Mid Sem 2</p>
+        <div class="mt-8 flex flex-wrap justify-center gap-3">
+            <a href="#definitions" class="px-4 py-2 bg-blue-600 text-white text-sm font-bold rounded-lg shadow-lg hover:bg-blue-700">Definitions (3 Marks)</a>
+            <a href="#programs" class="px-4 py-2 bg-purple-600 text-white text-sm font-bold rounded-lg shadow-lg hover:bg-purple-700">25 Programs (Full Solutions)</a>
+        </div>
+    </header>
+
+    <main class="max-w-5xl mx-auto space-y-24">
+
+        <!-- Section 1: Detailed Definitions (3 Marks) -->
+        <section id="definitions">
+            <h2 class="text-3xl font-extrabold mb-10 section-title">Core Definitions (3 Marks Each)</h2>
+            <div class="space-y-6">
+                
+                <div class="glass-card p-8 rounded-3xl">
+                    <h3 class="text-xl font-bold text-blue-700 mb-4">1. Array: Definition, Properties & Syntax</h3>
+                    <div class="text-slate-600 space-y-2 text-sm md:text-base">
+                        <p><strong class="text-slate-900">Definition:</strong> An array is a fixed-size, linear, and homogeneous collection of data elements stored in contiguous memory locations under a single identifier.</p>
+                        <p><strong class="text-slate-900">Key Properties:</strong> (1) Elements share the same data type. (2) Memory is allocated statically at compile-time. (3) Subscript/Index starts from 0 to (size-1).</p>
+                        <p><strong class="text-slate-900">Syntax:</strong> <code class="bg-slate-100 px-2 py-1 rounded">data_type array_name[size];</code></p>
+                        <p><strong class="text-slate-900">Example:</strong> <code class="bg-slate-100 px-2 py-1 rounded">int marks[5];</code> reserves 20 bytes (if int is 4 bytes) in a continuous block.</p>
+                    </div>
+                </div>
+
+                <div class="glass-card p-8 rounded-3xl">
+                    <h3 class="text-xl font-bold text-blue-700 mb-4">2. 1D Array: Concept & Initialization</h3>
+                    <div class="text-slate-600 space-y-2 text-sm md:text-base">
+                        <p><strong class="text-slate-900">Concept:</strong> A One-Dimensional array is a list of elements where each item is identified by a single index. It is essentially a mathematical vector in programming.</p>
+                        <p><strong class="text-slate-900">Logic:</strong> Accessing elements takes O(1) time because the compiler calculates address as: <code class="text-xs italic">BaseAddress + (index * size_of_type)</code>.</p>
+                        <p><strong class="text-slate-900">Initialization:</strong> (1) Static: <code class="bg-slate-100 px-2 py-1 rounded">int a[3] = {10, 20, 30};</code> (2) Dynamic: Using a <code class="italic">for</code> loop with <code class="italic">scanf</code>.</p>
+                    </div>
+                </div>
+
+                <div class="glass-card p-8 rounded-3xl">
+                    <h3 class="text-xl font-bold text-blue-700 mb-4">3. Function: Purpose & Components</h3>
+                    <div class="text-slate-600 space-y-2 text-sm md:text-base">
+                        <p><strong class="text-slate-900">Definition:</strong> A function is a self-contained module or block of code designed to perform a specific task, promoting the "Divide and Conquer" strategy.</p>
+                        <p><strong class="text-slate-900">Purpose:</strong> (1) Code Reusability (write once, use many). (2) Better Modularity and debugging. (3) Reduction in program size.</p>
+                        <p><strong class="text-slate-900">Components:</strong> Prototype (declaration), Call (execution), and Definition (actual logic body).</p>
+                    </div>
+                </div>
+
+                <div class="glass-card p-8 rounded-3xl">
+                    <h3 class="text-xl font-bold text-blue-700 mb-4">4. Sorting: Logic & Basic Techniques</h3>
+                    <div class="text-slate-600 space-y-2 text-sm md:text-base">
+                        <p><strong class="text-slate-900">Definition:</strong> Sorting is the systematic arrangement of data elements in a specific logical order, typically ascending or descending.</p>
+                        <p><strong class="text-slate-900">Basic Techniques:</strong> (1) <strong class="text-slate-800 italic text-xs">Bubble Sort:</strong> Repeatedly swaps adjacent elements. (2) <strong class="text-slate-800 italic text-xs">Selection Sort:</strong> Selects the minimum and places it at the start. (3) <strong class="text-slate-800 italic text-xs">Insertion Sort:</strong> Inserts elements into a sorted sub-part.</p>
+                        <p><strong class="text-slate-900">Complexity:</strong> Most basic sorts have a worst-case time complexity of O(n²).</p>
+                    </div>
+                </div>
+
+                <div class="glass-card p-8 rounded-3xl">
+                    <h3 class="text-xl font-bold text-blue-700 mb-4">5. Parameter Passing: Value vs Reference</h3>
+                    <div class="text-slate-600 space-y-4 text-sm md:text-base">
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                                <p class="font-bold text-slate-900 mb-2 underline">Call by Value</p>
+                                <p>Passes a copy of the actual parameter. Changes inside the function do not affect the original variables in main().</p>
+                            </div>
+                            <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                                <p class="font-bold text-slate-900 mb-2 underline">Call by Reference</p>
+                                <p>Passes the address (pointer) of the variable. Changes inside the function directly modify the original memory location.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Section 2: 25 Programming Solutions -->
+        <section id="programs">
+            <h2 class="text-3xl font-extrabold mb-10 section-title">25 Important Programming Solutions</h2>
+            <div class="space-y-12">
+
+                <!-- Q1 -->
+                <div class="glass-card rounded-3xl overflow-hidden shadow-sm">
+                    <div class="bg-slate-100 px-8 py-5 border-b border-slate-200 flex justify-between items-center">
+                        <h4 class="font-bold text-slate-800">1. Largest Element in Array</h4>
+                        <span class="text-[10px] uppercase font-black bg-blue-100 text-blue-700 px-2 py-1 rounded">High Weightage</span>
+                    </div>
+                    <div class="p-8">
+                        <p class="text-sm text-slate-500 mb-6 italic">Initializes max with first element and updates if current index is greater.</p>
+                        <pre class="bg-slate-900 text-blue-300 p-6 rounded-2xl text-xs leading-relaxed overflow-x-auto">
+#include &lt;stdio.h&gt;
+int main() {
+    int a[50], n, i, max;
+    printf("Enter size: "); scanf("%d", &n);
+    printf("Enter elements: ");
+    for(i=0; i&lt;n; i++) scanf("%d", &a[i]);
+
+    max = a[0];
+    for(i=1; i&lt;n; i++) if(a[i] &gt; max) max = a[i];
+
+    printf("Largest = %d", max);
+    return 0;
+}</pre>
+                    </div>
+                </div>
+
+                <!-- Q2 -->
+                <div class="glass-card rounded-3xl overflow-hidden shadow-sm">
+                    <div class="bg-slate-100 px-8 py-5 border-b border-slate-200"><h4 class="font-bold text-slate-800">2. Sum & Average of Array</h4></div>
+                    <div class="p-8">
+                        <p class="text-sm text-slate-500 mb-6 italic">Adds every element to a running total 'sum' and then divides by n.</p>
+                        <pre class="bg-slate-900 text-blue-300 p-6 rounded-2xl text-xs leading-relaxed overflow-x-auto">
+#include &lt;stdio.h&gt;
+int main() {
+    int a[100], n, i; float s = 0;
+    scanf("%d", &n);
+    for(i=0; i&lt;n; i++) { scanf("%d", &a[i]); s += a[i]; }
+    printf("Sum: %.2f, Avg: %.2f", s, s/n);
+    return 0;
+}</pre>
+                    </div>
+                </div>
+
+                <!-- Q3 -->
+                <div class="glass-card rounded-3xl overflow-hidden shadow-sm">
+                    <div class="bg-slate-100 px-8 py-5 border-b border-slate-200"><h4 class="font-bold text-slate-800">3. Reverse 1D Array</h4></div>
+                    <div class="p-8">
+                        <p class="text-sm text-slate-500 mb-6 italic">Swaps elements from indices i and (n-1-i) until the middle is reached.</p>
+                        <pre class="bg-slate-900 text-blue-300 p-6 rounded-2xl text-xs leading-relaxed overflow-x-auto">
+#include &lt;stdio.h&gt;
+int main() {
+    int a[]={1,2,3,4,5}, n=5, t, i;
+    for(i=0; i&lt;n/2; i++) { t=a[i]; a[i]=a[n-1-i]; a[n-1-i]=t; }
+    for(i=0; i&lt;n; i++) printf("%d ", a[i]);
+    return 0;
+}</pre>
+                    </div>
+                </div>
+
+                <!-- Q4 -->
+                <div class="glass-card rounded-3xl overflow-hidden shadow-sm">
+                    <div class="bg-slate-100 px-8 py-5 border-b border-slate-200"><h4 class="font-bold text-slate-800">4. Linear Search Implementation</h4></div>
+                    <div class="p-8">
+                        <p class="text-sm text-slate-500 mb-6 italic">Iterates index-by-index to match the target key; stops on first find.</p>
+                        <pre class="bg-slate-900 text-blue-300 p-6 rounded-2xl text-xs leading-relaxed overflow-x-auto">
+#include &lt;stdio.h&gt;
+int main() {
+    int a[]={10,25,30,45}, k=30, i, f=0;
+    for(i=0; i&lt;4; i++) if(a[i]==k) { printf("Pos: %d", i); f=1; break; }
+    if(!f) printf("Not Found");
+    return 0;
+}</pre>
+                    </div>
+                </div>
+
+                <!-- Q5 -->
+                <div class="glass-card rounded-3xl overflow-hidden shadow-sm">
+                    <div class="bg-slate-100 px-8 py-5 border-b border-slate-200"><h4 class="font-bold text-slate-800">5. Binary Search Implementation</h4></div>
+                    <div class="p-8">
+                        <p class="text-sm text-slate-500 mb-6 italic">Requires sorted array; cuts search range in half every comparison step.</p>
+                        <pre class="bg-slate-900 text-blue-300 p-6 rounded-2xl text-xs leading-relaxed overflow-x-auto">
+#include &lt;stdio.h&gt;
+int main() {
+    int a[]={10,20,30,40,50}, l=0, h=4, m, k=40;
+    while(l &lt;= h) {
+        m = (l+h)/2;
+        if(a[m]==k) { printf("Index: %d", m); return 0; }
+        if(a[m] &lt; k) l=m+1; else h=m-1;
+    }
+    printf("Not Found");
+    return 0;
+}</pre>
+                    </div>
+                </div>
+
+                <!-- Q6 -->
+                <div class="glass-card rounded-3xl overflow-hidden shadow-sm">
+                    <div class="bg-slate-100 px-8 py-5 border-b border-slate-200"><h4 class="font-bold text-slate-800">6. Bubble Sort Logic</h4></div>
+                    <div class="p-8">
+                        <p class="text-sm text-slate-500 mb-6 italic">Nested loops compare and swap neighbors to push largest value to end.</p>
+                        <pre class="bg-slate-900 text-blue-300 p-6 rounded-2xl text-xs leading-relaxed overflow-x-auto">
+#include &lt;stdio.h&gt;
+int main() {
+    int a[]={5,1,4,2}, n=4, i, j, t;
+    for(i=0; i&lt;n-1; i++)
+        for(j=0; j&lt;n-i-1; j++)
+            if(a[j]&gt;a[j+1]) { t=a[j]; a[j]=a[j+1]; a[j+1]=t; }
+    for(i=0; i&lt;n; i++) printf("%d ", a[i]);
+    return 0;
+}</pre>
+                    </div>
+                </div>
+
+                <!-- Q7 -->
+                <div class="glass-card rounded-3xl overflow-hidden shadow-sm">
+                    <div class="bg-slate-100 px-8 py-5 border-b border-slate-200"><h4 class="font-bold text-slate-800">7. Selection Sort Logic</h4></div>
+                    <div class="p-8">
+                        <p class="text-sm text-slate-500 mb-6 italic">Finds the index of minimum value in unsorted part and swaps with current start.</p>
+                        <pre class="bg-slate-900 text-blue-300 p-6 rounded-2xl text-xs leading-relaxed overflow-x-auto">
+#include &lt;stdio.h&gt;
+int main() {
+    int a[]={64,25,12,22}, n=4, i, j, m, t;
+    for(i=0; i&lt;n-1; i++) {
+        m=i; for(j=i+1; j&lt;n; j++) if(a[j]&lt;a[m]) m=j;
+        t=a[m]; a[m]=a[i]; a[i]=t;
+    }
+    for(i=0; i&lt;n; i++) printf("%d ", a[i]);
+    return 0;
+}</pre>
+                    </div>
+                </div>
+
+                <!-- Q8 -->
+                <div class="glass-card rounded-3xl overflow-hidden shadow-sm">
+                    <div class="bg-slate-100 px-8 py-5 border-b border-slate-200"><h4 class="font-bold text-slate-800">8. Insertion Sort Logic</h4></div>
+                    <div class="p-8">
+                        <p class="text-sm text-slate-500 mb-6 italic">Iteratively places current element into its correct slot in a sorted sub-list.</p>
+                        <pre class="bg-slate-900 text-blue-300 p-6 rounded-2xl text-xs leading-relaxed overflow-x-auto">
+#include &lt;stdio.h&gt;
+int main() {
+    int a[]={12,11,13,5}, n=4, i, j, k;
+    for(i=1; i&lt;n; i++) {
+        k=a[i]; j=i-1;
+        while(j&gt;=0 && a[j]&gt;k) { a[j+1]=a[j]; j--; }
+        a[j+1]=k;
+    }
+    for(i=0; i&lt;n; i++) printf("%d ", a[i]);
+    return 0;
+}</pre>
+                    </div>
+                </div>
+
+                <!-- Q9 -->
+                <div class="glass-card rounded-3xl overflow-hidden shadow-sm">
+                    <div class="bg-slate-100 px-8 py-5 border-b border-slate-200"><h4 class="font-bold text-slate-800">9. Swap using Pointers (Call by Reference)</h4></div>
+                    <div class="p-8">
+                        <p class="text-sm text-slate-500 mb-6 italic">Uses addresses to modify the original variables inside main().</p>
+                        <pre class="bg-slate-900 text-blue-300 p-6 rounded-2xl text-xs leading-relaxed overflow-x-auto">
+#include &lt;stdio.h&gt;
+void swap(int *x, int *y) { int t=*x; *x=*y; *y=t; }
+int main() {
+    int a=10, b=20;
+    swap(&a, &b);
+    printf("a:%d b:%d", a, b);
+    return 0;
+}</pre>
+                    </div>
+                </div>
+
+                <!-- Q10 -->
+                <div class="glass-card rounded-3xl overflow-hidden shadow-sm">
+                    <div class="bg-slate-100 px-8 py-5 border-b border-slate-200"><h4 class="font-bold text-slate-800">10. Factorial Calculation (Function)</h4></div>
+                    <div class="p-8">
+                        <p class="text-sm text-slate-500 mb-6 italic">Returns the product of all integers from 1 up to n.</p>
+                        <pre class="bg-slate-900 text-blue-300 p-6 rounded-2xl text-xs leading-relaxed overflow-x-auto">
+#include &lt;stdio.h&gt;
+long fact(int n) {
+    long f=1; for(int i=1; i&lt;=n; i++) f*=i;
+    return f;
+}
+int main() { printf("%ld", fact(5)); return 0; }</pre>
+                    </div>
+                </div>
+
+                <!-- Q11 -->
+                <div class="glass-card rounded-3xl overflow-hidden shadow-sm">
+                    <div class="bg-slate-100 px-8 py-5 border-b border-slate-200"><h4 class="font-bold text-slate-800">11. Count Even/Odd in Array</h4></div>
+                    <div class="p-8">
+                        <p class="text-sm text-slate-500 mb-6 italic">Increments counters based on result of modulus 2 operation.</p>
+                        <pre class="bg-slate-900 text-blue-300 p-6 rounded-2xl text-xs leading-relaxed overflow-x-auto">
+#include &lt;stdio.h&gt;
+int main() {
+    int a[]={1,2,3,4,5,6}, e=0, o=0;
+    for(int i=0; i&lt;6; i++) (a[i]%2==0) ? e++ : o++;
+    printf("E:%d O:%d", e, o); return 0;
+}</pre>
+                    </div>
+                </div>
+
+                <!-- Q12 -->
+                <div class="glass-card rounded-3xl overflow-hidden shadow-sm">
+                    <div class="bg-slate-100 px-8 py-5 border-b border-slate-200"><h4 class="font-bold text-slate-800">12. Power x^y (Function)</h4></div>
+                    <div class="p-8">
+                        <p class="text-sm text-slate-500 mb-6 italic">Iteratively multiplies the base x by itself y times.</p>
+                        <pre class="bg-slate-900 text-blue-300 p-6 rounded-2xl text-xs leading-relaxed overflow-x-auto">
+#include &lt;stdio.h&gt;
+double pwr(double x, int y) {
+    double r=1; while(y--) r*=x; return r;
+}
+int main() { printf("%.2f", pwr(2, 3)); return 0; }</pre>
+                    </div>
+                </div>
+
+                <!-- Q13 -->
+                <div class="glass-card rounded-3xl overflow-hidden shadow-sm">
+                    <div class="bg-slate-100 px-8 py-5 border-b border-slate-200"><h4 class="font-bold text-slate-800">13. Second Largest Element</h4></div>
+                    <div class="p-8">
+                        <p class="text-sm text-slate-500 mb-6 italic">Tracks maximum and updates second largest if a new max is found.</p>
+                        <pre class="bg-slate-900 text-blue-300 p-6 rounded-2xl text-xs leading-relaxed overflow-x-auto">
+#include &lt;stdio.h&gt;
+int main() {
+    int a[]={1, 9, 4, 8}, m1=-1, m2=-1;
+    for(int i=0; i&lt;4; i++) {
+        if(a[i]&gt;m1) { m2=m1; m1=a[i]; }
+        else if(a[i]&gt;m2 && a[i]!=m1) m2=a[i];
+    }
+    printf("2nd Max: %d", m2); return 0;
+}</pre>
+                    </div>
+                </div>
+
+                <!-- Q14 -->
+                <div class="glass-card rounded-3xl overflow-hidden shadow-sm">
+                    <div class="bg-slate-100 px-8 py-5 border-b border-slate-200"><h4 class="font-bold text-slate-800">14. Array Copying Logic</h4></div>
+                    <div class="p-8">
+                        <p class="text-sm text-slate-500 mb-6 italic">Transfers elements index-by-index from source to destination array.</p>
+                        <pre class="bg-slate-900 text-blue-300 p-6 rounded-2xl text-xs leading-relaxed overflow-x-auto">
+#include &lt;stdio.h&gt;
+int main() {
+    int a[]={1,2,3}, b[3], i;
+    for(i=0; i&lt;3; i++) b[i]=a[i];
+    for(i=0; i&lt;3; i++) printf("%d ", b[i]); return 0;
+}</pre>
+                    </div>
+                </div>
+
+                <!-- Q15 -->
+                <div class="glass-card rounded-3xl overflow-hidden shadow-sm">
+                    <div class="bg-slate-100 px-8 py-5 border-b border-slate-200"><h4 class="font-bold text-slate-800">15. Frequency Counter (Key)</h4></div>
+                    <div class="p-8">
+                        <p class="text-sm text-slate-500 mb-6 italic">Counts matches between array elements and the target key.</p>
+                        <pre class="bg-slate-900 text-blue-300 p-6 rounded-2xl text-xs leading-relaxed overflow-x-auto">
+#include &lt;stdio.h&gt;
+int main() {
+    int a[]={1,2,2,3,2}, k=2, c=0;
+    for(int i=0; i&lt;5; i++) if(a[i]==k) c++;
+    printf("Freq: %d", c); return 0;
+}</pre>
+                    </div>
+                </div>
+
+                <!-- Q16 -->
+                <div class="glass-card rounded-3xl overflow-hidden shadow-sm">
+                    <div class="bg-slate-100 px-8 py-5 border-b border-slate-200"><h4 class="font-bold text-slate-800">16. Prime Check (Function)</h4></div>
+                    <div class="p-8">
+                        <p class="text-sm text-slate-500 mb-6 italic">Returns 1 if no divisors are found up to n/2; else returns 0.</p>
+                        <pre class="bg-slate-900 text-blue-300 p-6 rounded-2xl text-xs leading-relaxed overflow-x-auto">
+#include &lt;stdio.h&gt;
+int isP(int n) {
+    if(n&lt;2) return 0;
+    for(int i=2; i&lt;=n/2; i++) if(n%i==0) return 0;
+    return 1;
+}
+int main() { if(isP(7)) printf("Prime"); return 0; }</pre>
+                    </div>
+                </div>
+
+                <!-- Q17 -->
+                <div class="glass-card rounded-3xl overflow-hidden shadow-sm">
+                    <div class="bg-slate-100 px-8 py-5 border-b border-slate-200"><h4 class="font-bold text-slate-800">17. Merge two Arrays</h4></div>
+                    <div class="p-8">
+                        <p class="text-sm text-slate-500 mb-6 italic">Sequentially copies first array and then appends second array elements.</p>
+                        <pre class="bg-slate-900 text-blue-300 p-6 rounded-2xl text-xs leading-relaxed overflow-x-auto">
+#include &lt;stdio.h&gt;
+int main() {
+    int a[]={1,2}, b[]={3,4}, c[4], i;
+    for(i=0; i&lt;2; i++) c[i]=a[i];
+    for(i=0; i&lt;2; i++) c[i+2]=b[i];
+    for(i=0; i&lt;4; i++) printf("%d ", c[i]); return 0;
+}</pre>
+                    </div>
+                </div>
+
+                <!-- Q18 -->
+                <div class="glass-card rounded-3xl overflow-hidden shadow-sm">
+                    <div class="bg-slate-100 px-8 py-5 border-b border-slate-200"><h4 class="font-bold text-slate-800">18. Sum of Prime Elements in Array</h4></div>
+                    <div class="p-8">
+                        <p class="text-sm text-slate-500 mb-6 italic">Traverses array and adds element to sum only if isPrime logic holds.</p>
+                        <pre class="bg-slate-900 text-blue-300 p-6 rounded-2xl text-xs leading-relaxed overflow-x-auto">
+#include &lt;stdio.h&gt;
+int main() {
+    int a[]={2,3,4,5}, s=0, i, j, p;
+    for(i=0; i&lt;4; i++) {
+        p=1; if(a[i]&lt;2) p=0;
+        for(j=2; j&lt;=a[i]/2; j++) if(a[i]%j==0) p=0;
+        if(p) s+=a[i];
+    }
+    printf("Sum: %d", s); return 0;
+}</pre>
+                    </div>
+                </div>
+
+                <!-- Q19 -->
+                <div class="glass-card rounded-3xl overflow-hidden shadow-sm">
+                    <div class="bg-slate-100 px-8 py-5 border-b border-slate-200"><h4 class="font-bold text-slate-800">19. Delete from Specific Position</h4></div>
+                    <div class="p-8">
+                        <p class="text-sm text-slate-500 mb-6 italic">Shifts all subsequent elements one position left to overwrite index.</p>
+                        <pre class="bg-slate-900 text-blue-300 p-6 rounded-2xl text-xs leading-relaxed overflow-x-auto">
+#include &lt;stdio.h&gt;
+int main() {
+    int a[]={1,2,3,4}, pos=1, i;
+    for(i=pos; i&lt;3; i++) a[i]=a[i+1];
+    for(i=0; i&lt;3; i++) printf("%d ", a[i]); return 0;
+}</pre>
+                    </div>
+                </div>
+
+                <!-- Q20 -->
+                <div class="glass-card rounded-3xl overflow-hidden shadow-sm">
+                    <div class="bg-slate-100 px-8 py-5 border-b border-slate-200"><h4 class="font-bold text-slate-800">20. Insert at Specific Position</h4></div>
+                    <div class="p-8">
+                        <p class="text-sm text-slate-500 mb-6 italic">Shifts elements right from the end to create a gap at the target index.</p>
+                        <pre class="bg-slate-900 text-blue-300 p-6 rounded-2xl text-xs leading-relaxed overflow-x-auto">
+#include &lt;stdio.h&gt;
+int main() {
+    int a[10]={1,2,4,5}, n=4, pos=2, val=3, i;
+    for(i=n; i&gt;pos; i--) a[i]=a[i-1];
+    a[pos]=val;
+    for(i=0; i&lt;=n; i++) printf("%d ", a[i]); return 0;
+}</pre>
+                    </div>
+                </div>
+
+                <!-- Q21 -->
+                <div class="glass-card rounded-3xl overflow-hidden shadow-sm">
+                    <div class="bg-slate-100 px-8 py-5 border-b border-slate-200"><h4 class="font-bold text-slate-800">21. Max of 3 Numbers (Function)</h4></div>
+                    <div class="p-8">
+                        <p class="text-sm text-slate-500 mb-6 italic">Uses nested conditional statements to find the largest parameter.</p>
+                        <pre class="bg-slate-900 text-blue-300 p-6 rounded-2xl text-xs leading-relaxed overflow-x-auto">
+#include &lt;stdio.h&gt;
+int mx(int a, int b, int c) {
+    if(a&gt;b && a&gt;c) return a;
+    return (b&gt;c) ? b : c;
+}
+int main() { printf("Max: %d", mx(5, 12, 8)); return 0; }</pre>
+                    </div>
+                </div>
+
+                <!-- Q22 -->
+                <div class="glass-card rounded-3xl overflow-hidden shadow-sm">
+                    <div class="bg-slate-100 px-8 py-5 border-b border-slate-200"><h4 class="font-bold text-slate-800">22. Fibonacci Sequence (Function)</h4></div>
+                    <div class="p-8">
+                        <p class="text-sm text-slate-500 mb-6 italic">Calculates next term by summing the previous two terms in a loop.</p>
+                        <pre class="bg-slate-900 text-blue-300 p-6 rounded-2xl text-xs leading-relaxed overflow-x-auto">
+#include &lt;stdio.h&gt;
+void fib(int n) {
+    int a=0, b=1, c;
+    for(int i=0; i&lt;n; i++) { printf("%d ", a); c=a+b; a=b; b=c; }
+}
+int main() { fib(5); return 0; }</pre>
+                    </div>
+                </div>
+
+                <!-- Q23 -->
+                <div class="glass-card rounded-3xl overflow-hidden shadow-sm">
+                    <div class="bg-slate-100 px-8 py-5 border-b border-slate-200"><h4 class="font-bold text-slate-800">23. Check if Array is Sorted</h4></div>
+                    <div class="p-8">
+                        <p class="text-sm text-slate-500 mb-6 italic">Returns 'Not Sorted' if any element is found to be greater than the next one.</p>
+                        <pre class="bg-slate-900 text-blue-300 p-6 rounded-2xl text-xs leading-relaxed overflow-x-auto">
+#include &lt;stdio.h&gt;
+int main() {
+    int a[]={1, 2, 8, 4}, s=1;
+    for(int i=0; i&lt;3; i++) if(a[i]&gt;a[i+1]) s=0;
+    (s) ? printf("Sorted") : printf("Unsorted"); return 0;
+}</pre>
+                    </div>
+                </div>
+
+                <!-- Q24 -->
+                <div class="glass-card rounded-3xl overflow-hidden shadow-sm">
+                    <div class="bg-slate-100 px-8 py-5 border-b border-slate-200"><h4 class="font-bold text-slate-800">24. Passing Array to Function (Display)</h4></div>
+                    <div class="p-8">
+                        <p class="text-sm text-slate-500 mb-6 italic">Uses the array identifier as a pointer to iterate through its memory block.</p>
+                        <pre class="bg-slate-900 text-blue-300 p-6 rounded-2xl text-xs leading-relaxed overflow-x-auto">
+#include &lt;stdio.h&gt;
+void disp(int arr[], int n) {
+    for(int i=0; i&lt;n; i++) printf("%d ", arr[i]);
+}
+int main() { int x[]={10,20}; disp(x, 2); return 0; }</pre>
+                    </div>
+                </div>
+
+                <!-- Q25 -->
+                <div class="glass-card rounded-3xl overflow-hidden shadow-sm">
+                    <div class="bg-slate-100 px-8 py-5 border-b border-slate-200"><h4 class="font-bold text-slate-800">25. Area of Circle (Function)</h4></div>
+                    <div class="p-8">
+                        <p class="text-sm text-slate-500 mb-6 italic">Implements the geometric area formula within a modular function.</p>
+                        <pre class="bg-slate-900 text-blue-300 p-6 rounded-2xl text-xs leading-relaxed overflow-x-auto">
+#include &lt;stdio.h&gt;
+float area(float r) { return 3.14 * r * r; }
+int main() { printf("Area: %.2f", area(5.0)); return 0; }</pre>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="max-w-5xl mx-auto mt-20 pb-10 text-center border-t border-slate-200 pt-10 text-slate-400 text-xs font-semibold uppercase tracking-widest">
+        &copy; copyright 2026
+    </footer>
+
+</body>
+</html>

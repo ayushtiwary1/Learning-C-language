@@ -1,0 +1,1237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BEE Detailed Solutions (ESEE1)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    
+    <!-- MathJax Configuration -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    
+    <style>
+        .diagram-box {
+            border: 2px dashed #94a3b8;
+            background-color: #f1f5f9;
+            color: #64748b;
+            padding: 1rem;
+            text-align: center;
+            margin: 1rem 0;
+            border-radius: 0.5rem;
+            font-style: italic;
+            font-size: 0.9rem;
+        }
+        .solution-card {
+            background: white;
+            border-radius: 8px;
+            padding: 24px;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            border: 1px solid #e2e8f0;
+            border-left: 6px solid;
+            position: relative;
+        }
+        
+        /* Difficulty Borders */
+        .border-easy { border-left-color: #22c55e; }
+        .border-medium { border-left-color: #eab308; }
+        .border-hard { border-left-color: #ef4444; }
+        
+        /* Corner Badges */
+        .badge {
+            position: absolute;
+            top: 0;
+            right: 0;
+            padding: 0.25rem 1rem;
+            border-bottom-left-radius: 8px;
+            border-top-right-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            box-shadow: -1px 1px 2px rgba(0,0,0,0.1);
+        }
+        .bg-easy { background-color: #dcfce7; color: #166534; }
+        .bg-medium { background-color: #fef9c3; color: #854d0e; }
+        .bg-hard { background-color: #fee2e2; color: #991b1b; }
+
+        .question-text {
+            font-weight: 700;
+            color: #1e293b;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            padding-right: 4rem;
+        }
+        
+        .answer-content {
+            color: #334155;
+            line-height: 1.7;
+            font-size: 1rem;
+        }
+        
+        .answer-content strong {
+            color: #0f172a;
+        }
+
+        .step-header {
+            font-weight: 600;
+            text-decoration: underline;
+            margin-top: 0.5rem;
+            display: block;
+        }
+
+        /* MathJax Scroll */
+        mjx-container {
+            overflow-x: auto;
+            overflow-y: hidden;
+            max-width: 100%;
+            display: block !important;
+            padding: 0.5rem 0;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans">
+
+    <div class="w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <header class="mb-12 text-center">
+            <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mb-2">Basic Electrical Engineering</h1>
+            <h2 class="text-xl text-blue-700 font-semibold">Question Bank Solutions (ESEE1)</h2>
+            <p class="text-slate-500 mt-2">Comprehensive Detailed Solutions (3-Marker & 5-Marker Style)</p>
+        </header>
+
+        <!-- UNIT II -->
+        <section class="mb-16">
+            <h2 class="text-2xl font-bold text-slate-800 mb-6 border-b-4 border-blue-600 pb-2 inline-block">Unit II: AC Circuits & 3-Phase Systems</h2>
+
+            <!-- Q1 -->
+            <div class="solution-card border-easy">
+                <span class="badge bg-easy">Easy</span>
+                <div class="question-text">1. Define Resonance.</div>
+                <div class="answer-content">
+                    <p><strong>Definition:</strong> Resonance in an electrical circuit is a specific operating condition where the inductive reactance ($X_L$) becomes equal to the capacitive reactance ($X_C$) in magnitude ($X_L = X_C$).</p>
+                    <p><strong>Key Characteristics:</strong></p>
+                    <ul class="list-disc pl-5 mt-2">
+                        <li>The net impedance of the circuit becomes purely resistive ($Z = R$).</li>
+                        <li>The voltage and current are in phase, resulting in a <strong>Unity Power Factor</strong>.</li>
+                        <li>In a series circuit, current is maximum; in a parallel circuit, impedance is maximum.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Q2 -->
+            <div class="solution-card border-medium">
+                <span class="badge bg-medium">Medium</span>
+                <div class="question-text">2. Explain resonance for series RLC circuit and derive the equation for resonant frequency.</div>
+                <div class="answer-content">
+                    <p>Consider a series RLC circuit with resistance $R$, inductance $L$, and capacitance $C$ connected to an AC source $V$. The total impedance is:</p>
+                    $$ Z = R + j(X_L - X_C) $$
+                    <p><strong>Resonance Condition:</strong> Resonance occurs when the imaginary part of the impedance is zero.</p>
+                    $$ X_L - X_C = 0 \Rightarrow X_L = X_C $$
+                    <p>Substituting the formulas for reactances ($X_L = 2\pi f L$ and $X_C = \frac{1}{2\pi f C}$):</p>
+                    $$ 2\pi f_r L = \frac{1}{2\pi f_r C} $$
+                    $$ f_r^2 = \frac{1}{4\pi^2 LC} $$
+                    $$ f_r = \frac{1}{2\pi\sqrt{LC}} \text{ Hz} $$
+                    <p>Where $f_r$ is the resonant frequency.</p>
+                </div>
+            </div>
+
+            <!-- Q3 -->
+            <div class="solution-card border-medium">
+                <span class="badge bg-medium">Medium</span>
+                <div class="question-text">3. Formulate the current relationship and the voltage relationship in a 3-phase star connected system, also derive the equation for power.</div>
+                <div class="answer-content">
+                    <p><strong>Relationships in Star (Y) Connection:</strong></p>
+                    <ul class="list-disc pl-5">
+                        <li><strong>Current:</strong> The line conductor is connected directly to the phase winding. Therefore, Line Current equals Phase Current.<br>$$I_L = I_{ph}$$</li>
+                        <li><strong>Voltage:</strong> The line voltage is the vector difference of two phase voltages (e.g., $V_{RY} = V_R - V_Y$). Magnitude-wise:<br>$$V_L = \sqrt{3}V_{ph}$$</li>
+                    </ul>
+                    <p><strong>Power Derivation:</strong></p>
+                    <p>Total Power ($P$) is the sum of power in all three phases:</p>
+                    $$ P = 3 \times V_{ph} \times I_{ph} \times \cos\phi $$
+                    <p>Substitute $V_{ph} = V_L/\sqrt{3}$ and $I_{ph} = I_L$:</p>
+                    $$ P = 3 \times \frac{V_L}{\sqrt{3}} \times I_L \times \cos\phi $$
+                    $$ P = \sqrt{3} V_L I_L \cos\phi \text{ Watts} $$
+                </div>
+            </div>
+
+            <!-- Q4 -->
+            <div class="solution-card border-easy">
+                <span class="badge bg-easy">Easy</span>
+                <div class="question-text">4. Prove that the resultant voltage at any instant is zero in a balanced three phase system.</div>
+                <div class="answer-content">
+                    <p>Let the three balanced phase voltages be:</p>
+                    $$ v_R = V_m \sin(\omega t) $$
+                    $$ v_Y = V_m \sin(\omega t - 120^\circ) $$
+                    $$ v_B = V_m \sin(\omega t - 240^\circ) $$
+                    <p>Summing them up:</p>
+                    $$ v_{sum} = V_m [ \sin\omega t + \sin(\omega t - 120^\circ) + \sin(\omega t - 240^\circ) ] $$
+                    <p>Using expansion $\sin(A-B) = \sin A \cos B - \cos A \sin B$ and values $\cos(120^\circ) = -0.5, \sin(120^\circ) = \frac{\sqrt{3}}{2}$:</p>
+                    $$ = V_m [ \sin\omega t + (-0.5\sin\omega t - \frac{\sqrt{3}}{2}\cos\omega t) + (-0.5\sin\omega t + \frac{\sqrt{3}}{2}\cos\omega t) ] $$
+                    $$ = V_m [ \sin\omega t - 0.5\sin\omega t - 0.5\sin\omega t ] = 0 $$
+                    <p>Hence proved.</p>
+                </div>
+            </div>
+
+            <!-- Q5 -->
+            <div class="solution-card border-easy">
+                <span class="badge bg-easy">Easy</span>
+                <div class="question-text">5. Explain about Star and Delta connected three phase balanced circuits.</div>
+                <div class="answer-content">
+                    <p><strong>Star Connection (Y):</strong></p>
+                    <ul class="list-disc pl-5">
+                        <li>The finishing ends of all three windings are connected to a common neutral point.</li>
+                        <li>Has 4 wires (R, Y, B, Neutral).</li>
+                        <li>$V_L = \sqrt{3}V_{ph}$, $I_L = I_{ph}$. Used for power distribution.</li>
+                    </ul>
+                    <p class="mt-2"><strong>Delta Connection ($\Delta$):</strong></p>
+                    <ul class="list-disc pl-5">
+                        <li>The finish of one winding connects to the start of the next, forming a closed loop.</li>
+                        <li>Has 3 wires (no neutral).</li>
+                        <li>$V_L = V_{ph}$, $I_L = \sqrt{3}I_{ph}$. Used for motor loads and transmission.</li>
+                    </ul>
+                    <div class="diagram-box">[Diagram: Y-connection with Neutral vs Delta triangle connection]</div>
+                </div>
+            </div>
+
+            <!-- Q6 -->
+            <div class="solution-card border-medium">
+                <span class="badge bg-medium">Medium</span>
+                <div class="question-text">6. A star connected load has $6+j8$ ohm impedance per phase. Determine the line current if it is connected to 400V, three phase, and 50Hz supply.</div>
+                <div class="answer-content">
+                    <p><strong>Given Data:</strong> $Z_{ph} = 6+j8 \, \Omega$, $V_L = 400V$ (Star).</p>
+                    <span class="step-header">Step 1: Calculate Impedance Magnitude</span>
+                    $$ |Z_{ph}| = \sqrt{6^2 + 8^2} = \sqrt{36+64} = \sqrt{100} = 10 \, \Omega $$
+                    <span class="step-header">Step 2: Calculate Phase Voltage</span>
+                    <p>In Star, $V_{ph} = V_L / \sqrt{3}$.</p>
+                    $$ V_{ph} = \frac{400}{\sqrt{3}} = 230.94 \, V $$
+                    <span class="step-header">Step 3: Calculate Line Current</span>
+                    <p>In Star, $I_L = I_{ph}$.</p>
+                    $$ I_L = I_{ph} = \frac{V_{ph}}{Z_{ph}} = \frac{230.94}{10} = \mathbf{23.094 \, A} $$
+                </div>
+            </div>
+
+            <!-- Q7 -->
+            <div class="solution-card border-medium">
+                <span class="badge bg-medium">Medium</span>
+                <div class="question-text">7. A three phase, balanced delta connected load of $(4+j8)\Omega$, 3-phase balanced supply. Determine phase currents, line currents (assume 400V) and Power.</div>
+                <div class="answer-content">
+                    <p><strong>Given:</strong> $Z_{ph} = 4+j8 \, \Omega$, $V_L = 400V$ (Delta).</p>
+                    <span class="step-header">Step 1: Impedance Calculation</span>
+                    $$ Z_{ph} = \sqrt{4^2+8^2} \angle \tan^{-1}(8/4) = 8.944 \angle 63.43^\circ \, \Omega $$
+                    <span class="step-header">Step 2: Phase Current</span>
+                    <p>In Delta, $V_{ph} = V_L = 400V$.</p>
+                    $$ I_{ph} = \frac{400}{8.944} = 44.72 \, A $$
+                    <span class="step-header">Step 3: Line Current</span>
+                    <p>In Delta, $I_L = \sqrt{3} I_{ph}$.</p>
+                    $$ I_L = \sqrt{3} \times 44.72 = \mathbf{77.46 \, A} $$
+                    <span class="step-header">Step 4: Total Power</span>
+                    $$ P = \sqrt{3} V_L I_L \cos\phi = \sqrt{3} \times 400 \times 77.46 \times \cos(63.43^\circ) $$
+                    $$ P = 1.732 \times 400 \times 77.46 \times 0.447 \approx \mathbf{24,000 \, W} \, (24 kW) $$
+                </div>
+            </div>
+
+            <!-- Q8 -->
+            <div class="solution-card border-medium">
+                <span class="badge bg-medium">Medium</span>
+                <div class="question-text">8. A balanced star connected load impedance $(15+j20)\Omega$ per phase, 440V, 50 Hz supply. Find line currents and power.</div>
+                <div class="answer-content">
+                    <p><strong>Given:</strong> $V_L = 440V$, $Z = 15+j20$.</p>
+                    <p>1. <strong>Impedance:</strong> $Z = \sqrt{15^2+20^2} = 25 \Omega$. Power Factor $\cos\phi = R/Z = 15/25 = 0.6$.</p>
+                    <p>2. <strong>Phase Voltage:</strong> $V_{ph} = 440/\sqrt{3} = 254.03 V$.</p>
+                    <p>3. <strong>Line Current ($I_L = I_{ph}$):</strong></p>
+                    $$ I_L = \frac{254.03}{25} = \mathbf{10.16 \, A} $$
+                    <p>4. <strong>Total Power:</strong></p>
+                    $$ P = \sqrt{3} V_L I_L \cos\phi = 1.732 \times 440 \times 10.16 \times 0.6 = \mathbf{4,645 \, W} $$
+                </div>
+            </div>
+
+            <!-- Q9 -->
+            <div class="solution-card border-hard">
+                <span class="badge bg-hard">Hard</span>
+                <div class="question-text">9. Three impedances $Z_{1}=20\angle30^{\circ}$, $Z_{2}=40\angle60^{\circ}$ and $Z_{3}=10\angle-90^{\circ}$ are delta connected to a 400V system. Determine (a) Phase currents; (b) Line currents and (c) Total power.</div>
+                <div class="answer-content">
+                    <p><strong>Assumptions:</strong> Phase sequence RYB. Line voltages: $V_{RY}=400\angle0^\circ$, $V_{YB}=400\angle-120^\circ$, $V_{BR}=400\angle120^\circ$.</p>
+                    
+                    <span class="step-header">(a) Phase Currents</span>
+                    $$ I_{RY} = \frac{V_{RY}}{Z_1} = \frac{400\angle0^\circ}{20\angle30^\circ} = \mathbf{20\angle-30^\circ A} $$
+                    $$ I_{YB} = \frac{V_{YB}}{Z_2} = \frac{400\angle-120^\circ}{40\angle60^\circ} = \mathbf{10\angle-180^\circ A} $$
+                    $$ I_{BR} = \frac{V_{BR}}{Z_3} = \frac{400\angle120^\circ}{10\angle-90^\circ} = \mathbf{40\angle210^\circ A} $$
+
+                    <span class="step-header">(b) Line Currents (Apply KCL)</span>
+                    <p>$I_R = I_{RY} - I_{BR} = 20\angle-30^\circ - 40\angle210^\circ$.</p>
+                    <p>Rectangular form: $I_{RY} = 17.32 - j10$. $I_{BR} = -34.64 - j20$.</p>
+                    $$ I_R = (17.32 - j10) - (-34.64 - j20) = 51.96 + j10 = \mathbf{52.9\angle10.9^\circ A} $$
+                    <p>Similarly, calculate $I_Y = I_{YB} - I_{RY}$ and $I_B = I_{BR} - I_{YB}$.</p>
+
+                    <span class="step-header">(c) Total Power</span>
+                    <p>$P = I_{RY}^2 R_1 + I_{YB}^2 R_2 + I_{BR}^2 R_3$.</p>
+                    <p>$R_1 = 20\cos(30^\circ) = 17.32\Omega$. $R_2 = 40\cos(60^\circ) = 20\Omega$. $R_3 = 10\cos(-90^\circ) = 0\Omega$.</p>
+                    $$ P = (20^2 \times 17.32) + (10^2 \times 20) + 0 = 6928 + 2000 = \mathbf{8,928 \, W} $$
+                </div>
+            </div>
+
+            <!-- Q10 -->
+            <div class="solution-card border-hard">
+                <span class="badge bg-hard">Hard</span>
+                <div class="question-text">10. Unbalanced 4-wire star connected load, balanced voltage 400V. $Z_{1}=(4+j8)$, $Z_{2}=(3+j4)$, $Z_{3}=(15+j20)$. Calculate (a) Line currents, (b) Neutral current, (c) Total power.</div>
+                <div class="answer-content">
+                    <p>Phase voltage $V_{ph} = 400/\sqrt{3} = 230.94V$. Reference voltages: $V_R=230.94\angle0^\circ, V_Y=230.94\angle-120^\circ, V_B=230.94\angle120^\circ$.</p>
+                    
+                    <span class="step-header">(a) Line Currents ($I = V/Z$)</span>
+                    $$ I_R = \frac{230.94\angle0^\circ}{8.94\angle63.4^\circ} = \mathbf{25.83\angle-63.4^\circ A} $$
+                    $$ I_Y = \frac{230.94\angle-120^\circ}{5\angle53.1^\circ} = \mathbf{46.19\angle-173.1^\circ A} $$
+                    $$ I_B = \frac{230.94\angle120^\circ}{25\angle53.1^\circ} = \mathbf{9.24\angle66.9^\circ A} $$
+
+                    <span class="step-header">(b) Neutral Current ($I_N = -(I_R+I_Y+I_B)$)</span>
+                    <p>Converting to Rectangular:</p>
+                    <p>$I_R = 11.55 - j23.09$</p>
+                    <p>$I_Y = -45.85 - j5.55$</p>
+                    <p>$I_B = 3.61 + j8.50$</p>
+                    <p>Sum = $-30.69 - j20.14$.</p>
+                    $$ I_N = -(-30.69 - j20.14) = 30.69 + j20.14 = \mathbf{36.7\angle33.3^\circ A} $$
+
+                    <span class="step-header">(c) Total Power ($\sum I^2 R$)</span>
+                    $$ P = (25.83^2 \times 4) + (46.19^2 \times 3) + (9.24^2 \times 15) = \mathbf{10,348 \, W} $$
+                </div>
+            </div>
+
+            <!-- Q11 -->
+            <div class="solution-card border-hard">
+                <span class="badge bg-hard">Hard</span>
+                <div class="question-text">11. Delta connected load: $Z_{RY}=10\angle30^{\circ}$, $Z_{YB}=10\angle-45^{\circ}$, $Z_{BR}=2.5\angle-60^{\circ}$. Find equivalent star connected load.</div>
+                <div class="answer-content">
+                    <p><strong>Formula:</strong> $Z_{Star\_Node} = \frac{\text{Product of Adjacent Delta Impedances}}{\text{Sum of all Delta Impedances}}$</p>
+                    <span class="step-header">Step 1: Calculate Sum of Delta ($Z_\Delta$)</span>
+                    <p>$Z_{RY} = 8.66 + j5$</p>
+                    <p>$Z_{YB} = 7.07 - j7.07$</p>
+                    <p>$Z_{BR} = 1.25 - j2.16$</p>
+                    $$ Z_\Delta = 16.98 - j4.23 = 17.5\angle-14^\circ \Omega $$
+                    
+                    <span class="step-header">Step 2: Calculate Star Branches</span>
+                    $$ Z_R = \frac{Z_{RY} Z_{BR}}{Z_\Delta} = \frac{(10\angle30)(2.5\angle-60)}{17.5\angle-14} = \mathbf{1.43\angle-16^\circ \Omega} $$
+                    $$ Z_Y = \frac{Z_{RY} Z_{YB}}{Z_\Delta} = \frac{(10\angle30)(10\angle-45)}{17.5\angle-14} = \mathbf{5.71\angle-1^\circ \Omega} $$
+                    $$ Z_B = \frac{Z_{YB} Z_{BR}}{Z_\Delta} = \frac{(10\angle-45)(2.5\angle-60)}{17.5\angle-14} = \mathbf{1.43\angle-91^\circ \Omega} $$
+                </div>
+            </div>
+
+            <!-- Q12 -->
+            <div class="solution-card border-hard">
+                <span class="badge bg-hard">Hard</span>
+                <div class="question-text">12. Delta to Star: $Z_{R}=(2+j3)$, $Z_{Y}=(1-j2)$, $Z_{B}=(3+j4)$. Find equivalent star.</div>
+                <div class="answer-content">
+                    <p><em>Note: Assuming $Z_R$ corresponds to $Z_{RY}$, etc.</em></p>
+                    <span class="step-header">Step 1: Sum of Impedances</span>
+                    $$ Z_\Delta = (2+j3) + (1-j2) + (3+j4) = 6 + j5 = 7.81\angle39.8^\circ \Omega $$
+                    <span class="step-header">Step 2: Calculate Star Equivalents</span>
+                    <p>For Node A (connected to R):</p>
+                    $$ Z_A = \frac{(2+j3)(3+j4)}{6+j5} = \frac{-6+j17}{6+j5} \approx \mathbf{2.3\angle70^\circ \Omega} $$
+                    <p>Repeat logic for $Z_B$ and $Z_C$.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- UNIT III -->
+        <section class="mb-16">
+            <h2 class="text-2xl font-bold text-slate-800 mb-6 border-b-4 border-blue-600 pb-2 inline-block">Unit III: Magnetic Circuits & Transformers</h2>
+
+            <!-- Q1 -->
+            <div class="solution-card border-easy">
+                <span class="badge bg-easy">Easy</span>
+                <div class="question-text">1. Explain the following Magnetic field properties (i) Magnetic Field (ii) Flux (iii) Flux Density (iv) Intensity (v) Permeability (vi) Reluctance (vii) Permeance (viii) MMF.</div>
+                <div class="answer-content">
+                    <ul class="list-disc pl-5">
+                        <li><strong>Magnetic Field:</strong> The space around a magnet where its influence is felt.</li>
+                        <li><strong>Magnetic Flux ($\phi$):</strong> The total number of magnetic lines of force. Unit: Weber (Wb).</li>
+                        <li><strong>Flux Density ($B$):</strong> Flux per unit area ($B=\phi/A$). Unit: Tesla (T).</li>
+                        <li><strong>Magnetic Intensity ($H$):</strong> The force establishing the flux ($H=NI/l$). Unit: AT/m.</li>
+                        <li><strong>Permeability ($\mu$):</strong> Ability to conduct flux. $\mu = \mu_0 \mu_r$.</li>
+                        <li><strong>Reluctance ($S$):</strong> Opposition to flux ($S=l/\mu A$). Unit: AT/Wb.</li>
+                        <li><strong>Permeance:</strong> Reciprocal of reluctance. Unit: Wb/AT.</li>
+                        <li><strong>MMF:</strong> Magneto Motive Force ($N \times I$). The driving force. Unit: Ampere-Turns.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Q2 -->
+            <div class="solution-card border-medium">
+                <span class="badge bg-medium">Medium</span>
+                <div class="question-text">2. Compare Magnetic Circuit and Electric Circuit.</div>
+                <div class="answer-content">
+                    <table class="w-full border-collapse border border-slate-300 mt-2">
+                        <thead>
+                            <tr class="bg-slate-100"><th class="border p-2">Magnetic Circuit</th><th class="border p-2">Electric Circuit</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td class="border p-2">Flux ($\phi$) flows (Unit: Wb)</td><td class="border p-2">Current ($I$) flows (Unit: A)</td></tr>
+                            <tr><td class="border p-2">MMF ($NI$) drives flux</td><td class="border p-2">EMF ($V$) drives current</td></tr>
+                            <tr><td class="border p-2">Reluctance ($S$) opposes flux</td><td class="border p-2">Resistance ($R$) opposes current</td></tr>
+                            <tr><td class="border p-2">Permeability ($\mu$)</td><td class="border p-2">Conductivity ($\sigma$)</td></tr>
+                            <tr><td class="border p-2">Flux is established, not consumed.</td><td class="border p-2">Energy is dissipated as heat ($I^2R$).</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Q3 -->
+            <div class="solution-card border-easy">
+                <span class="badge bg-easy">Easy</span>
+                <div class="question-text">3. Define Self Induced EMF and Mutually Induced EMF with neat sketch.</div>
+                <div class="answer-content">
+                    <p><strong>Self Induced EMF:</strong> The EMF induced in a coil due to the change of current in the coil itself. According to Lenz's law, it opposes the change. Formula: $e = -L \frac{di}{dt}$.</p>
+                    <p><strong>Mutually Induced EMF:</strong> The EMF induced in a secondary coil due to the change of current in a primary neighboring coil. Formula: $e_2 = -M \frac{di_1}{dt}$.</p>
+                    <div class="diagram-box">[Diagram: Single coil for self-induction, Two coupled coils for mutual induction]</div>
+                </div>
+            </div>
+
+            <!-- Q4 -->
+            <div class="solution-card border-easy">
+                <span class="badge bg-easy">Easy</span>
+                <div class="question-text">4. Explain B-H Curve and Draw with all parameters.</div>
+                <div class="answer-content">
+                    <p>The B-H curve (Hysteresis Loop) plots Flux Density ($B$) vs Magnetic Field Intensity ($H$) for a ferromagnetic material.</p>
+                    <ul class="list-disc pl-5">
+                        <li><strong>Saturation:</strong> Point where B stops increasing with H.</li>
+                        <li><strong>Retentivity (Br):</strong> The flux remaining when H is reduced to zero.</li>
+                        <li><strong>Coercivity (Hc):</strong> The negative H required to reduce B to zero.</li>
+                        <li><strong>Hysteresis Loss:</strong> The area of the loop represents energy loss as heat.</li>
+                    </ul>
+                    <div class="diagram-box">[Diagram: Hysteresis Loop showing Saturation, Retentivity, Coercivity]</div>
+                </div>
+            </div>
+
+            <!-- Q5 -->
+            <div class="solution-card border-medium">
+                <span class="badge bg-medium">Medium</span>
+                <div class="question-text">5. A nonmagnetic ring has a mean diameter of 44.5cm and a cross sectional area of $12cm^{2}$. It is uniformly wound with 500 turns. Calculate the Field strength and Total flux produced in the ring by a current of 1A.</div>
+                <div class="answer-content">
+                    <p><strong>Given:</strong> $D=0.445m$, $A=12 \times 10^{-4}m^2$, $N=500$, $I=1A$, Non-magnetic ($\mu_r=1$).</p>
+                    <p><strong>Step 1: Mean Length ($l$)</strong></p>
+                    $$ l = \pi \times D = \pi \times 0.445 = 1.398 \, m $$
+                    <p><strong>Step 2: Field Strength ($H$)</strong></p>
+                    $$ H = \frac{NI}{l} = \frac{500 \times 1}{1.398} = \mathbf{357.65 \, AT/m} $$
+                    <p><strong>Step 3: Flux Density ($B$)</strong></p>
+                    $$ B = \mu_0 H = 4\pi \times 10^{-7} \times 357.65 = 4.49 \times 10^{-4} \, T $$
+                    <p><strong>Step 4: Total Flux ($\phi$)</strong></p>
+                    $$ \phi = B \times A = 4.49 \times 10^{-4} \times 12 \times 10^{-4} = \mathbf{0.539 \, \mu Wb} $$
+                </div>
+            </div>
+
+            <!-- Q6 -->
+            <div class="solution-card border-easy">
+                <span class="badge bg-easy">Easy</span>
+                <div class="question-text">6. State the principle of operation of a transformer.</div>
+                <div class="answer-content">
+                    <p>A transformer operates on the principle of <strong>Mutual Induction</strong> between two magnetically coupled coils. When an alternating voltage is applied to the primary winding, it creates an alternating magnetic flux in the core. This flux links with the secondary winding, inducing an EMF in it according to Faraday’s Laws of Electromagnetic Induction.</p>
+                </div>
+            </div>
+
+            <!-- Q7 -->
+            <div class="solution-card border-easy">
+                <span class="badge bg-easy">Easy</span>
+                <div class="question-text">7. Why transformers are rated in kVA?</div>
+                <div class="answer-content">
+                    <p>Transformer losses consist of:</p>
+                    <ol class="list-decimal pl-5">
+                        <li>Iron Losses: Depend on Voltage ($V$).</li>
+                        <li>Copper Losses: Depend on Current ($I$).</li>
+                    </ol>
+                    <p>The total heating (loss) depends on the product of Volts and Amperes ($VA$), not on the power factor ($\cos\phi$) of the load. Since the manufacturer does not know what load power factor the user will connect, the rating is given in kVA, not kW.</p>
+                </div>
+            </div>
+
+            <!-- Q8 -->
+            <div class="solution-card border-easy">
+                <span class="badge bg-easy">Easy</span>
+                <div class="question-text">8. Explain the construction of a magnetic core of a transformer.</div>
+                <div class="answer-content">
+                    <p>The core provides a low reluctance path for magnetic flux. It is made of <strong>Cold Rolled Grain Oriented (CRGO) Silicon Steel</strong>.</p>
+                    <ul class="list-disc pl-5">
+                        <li><strong>Lamination:</strong> The core is built of thin laminations (0.35mm to 0.5mm) insulated from each other by varnish to minimize Eddy Current Losses.</li>
+                        <li><strong>Silicon Steel:</strong> Used to minimize Hysteresis Losses.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Q9 -->
+            <div class="solution-card border-easy">
+                <span class="badge bg-easy">Easy</span>
+                <div class="question-text">9. Describe the construction details of single phase transformer.</div>
+                <div class="answer-content">
+                    <p>A single-phase transformer consists of:</p>
+                    <ol class="list-decimal pl-5">
+                        <li><strong>Magnetic Core:</strong> Laminated steel limbs and yoke.</li>
+                        <li><strong>Windings:</strong> Primary and Secondary coils made of copper. Placed on the limbs.</li>
+                        <li><strong>Insulation:</strong> Paper or oil between turns and between winding and core.</li>
+                        <li><strong>Tank & Oil:</strong> The assembly is placed in a steel tank filled with transformer oil for cooling and insulation.</li>
+                    </ol>
+                </div>
+            </div>
+
+            <!-- Q10 -->
+            <div class="solution-card border-easy">
+                <span class="badge bg-easy">Easy</span>
+                <div class="question-text">10. State the various parts of a transformer and their functions in detail.</div>
+                <div class="answer-content">
+                    <ul class="list-disc pl-5">
+                        <li><strong>Core:</strong> Carries magnetic flux.</li>
+                        <li><strong>Windings:</strong> Carry current; input and output circuits.</li>
+                        <li><strong>Transformer Oil:</strong> Acts as insulator and coolant.</li>
+                        <li><strong>Conservator Tank:</strong> Accommodates oil expansion/contraction.</li>
+                        <li><strong>Breather:</strong> Removes moisture from air entering the conservator (uses Silica Gel).</li>
+                        <li><strong>Buchholz Relay:</strong> Protects against internal faults (gas actuated).</li>
+                        <li><strong>Bushings:</strong> Insulated terminals for connecting cables.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Q11 -->
+            <div class="solution-card border-medium">
+                <span class="badge bg-medium">Medium</span>
+                <div class="question-text">11. Formulate the EMF equation for Transformer.</div>
+                <div class="answer-content">
+                    <p>Let flux $\phi = \phi_m \sin(\omega t)$.</p>
+                    <p>Induced EMF per turn $e = -\frac{d\phi}{dt} = -\frac{d}{dt}(\phi_m \sin \omega t) = -\omega \phi_m \cos \omega t = \omega \phi_m \sin(\omega t - 90^\circ)$.</p>
+                    <p>Maximum value $E_{max} = \omega \phi_m = 2\pi f \phi_m$.</p>
+                    <p>RMS value = $E_{max} / \sqrt{2} = \frac{2\pi f \phi_m}{\sqrt{2}} = 4.44 f \phi_m$.</p>
+                    <p><strong>Equation:</strong></p>
+                    $$ E_1 = 4.44 f N_1 \phi_m $$
+                    $$ E_2 = 4.44 f N_2 \phi_m $$
+                </div>
+            </div>
+
+            <!-- Q12 -->
+            <div class="solution-card border-easy">
+                <span class="badge bg-easy">Easy</span>
+                <div class="question-text">12. Examine the meaning of transformer regulation.</div>
+                <div class="answer-content">
+                    <p><strong>Voltage Regulation</strong> is defined as the change in the secondary terminal voltage from No-load to Full-load, expressed as a percentage of the no-load voltage (or rated voltage), assuming the primary voltage remains constant.</p>
+                    $$ \% Reg = \frac{V_{no-load} - V_{full-load}}{V_{no-load}} \times 100 $$
+                    <p>It indicates how much the voltage drops when a load is connected.</p>
+                </div>
+            </div>
+
+            <!-- Q13 -->
+            <div class="solution-card border-medium">
+                <span class="badge bg-medium">Medium</span>
+                <div class="question-text">13. Express the condition for maximum efficiency for a transformer.</div>
+                <div class="answer-content">
+                    <p>Efficiency $\eta = \frac{Output}{Output + Losses}$.</p>
+                    <p>Losses = Constant Iron Loss ($P_i$) + Variable Copper Loss ($I^2 R_{eq}$).</p>
+                    <p>Differentiating efficiency with respect to load current $I$ and equating to zero yields the condition:</p>
+                    <p><strong>Variable Copper Loss = Constant Iron Loss</strong></p>
+                    $$ I^2 R_{eq} = P_i $$
+                    <p>Load at max efficiency: $kVA_{max} = kVA_{rated} \times \sqrt{\frac{P_i}{P_{cu(FL)}}}$.</p>
+                </div>
+            </div>
+
+            <!-- Q14 -->
+            <div class="solution-card border-easy">
+                <span class="badge bg-easy">Easy</span>
+                <div class="question-text">14. What is meant by losses in a transformer? And give the list of losses.</div>
+                <div class="answer-content">
+                    <p>Losses refer to the power wasted inside the transformer, reducing efficiency. Types:</p>
+                    <ol class="list-decimal pl-5">
+                        <li><strong>Core (Iron) Losses:</strong> Constant losses.
+                            <ul class="list-disc pl-5"><li>Hysteresis Loss</li><li>Eddy Current Loss</li></ul>
+                        </li>
+                        <li><strong>Copper (Ohmic) Losses:</strong> $I^2R$ heat loss in windings. Varies with load.</li>
+                        <li><strong>Stray Load Losses:</strong> Minor losses in tank/structure due to leakage flux.</li>
+                    </ol>
+                </div>
+            </div>
+
+            <!-- Q15 -->
+            <div class="solution-card border-easy">
+                <span class="badge bg-easy">Easy</span>
+                <div class="question-text">15. Compare (i) Core type transformer (ii) Shell type.</div>
+                <div class="answer-content">
+                    <ul class="list-disc pl-5">
+                        <li><strong>Core Type:</strong> The windings surround a considerable part of the core. Has 2 limbs. Flux has a single path. Better for High Voltage (easier insulation).</li>
+                        <li><strong>Shell Type:</strong> The core surrounds a considerable part of the windings. Has 3 limbs. Flux splits into two paths. Better mechanical strength, used for Low Voltage, High Current.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Q16 -->
+            <div class="solution-card border-easy">
+                <span class="badge bg-easy">Easy</span>
+                <div class="question-text">16. Formulate expression for step up/down transformer according to transformation ratio.</div>
+                <div class="answer-content">
+                    <p>Transformation Ratio ($K$):</p>
+                    $$ K = \frac{N_2}{N_1} = \frac{E_2}{E_1} $$
+                    <ul class="list-disc pl-5">
+                        <li>If $K > 1$ ($N_2 > N_1$): <strong>Step-up Transformer</strong> (Output Voltage > Input Voltage).</li>
+                        <li>If $K < 1$ ($N_2 < N_1$): <strong>Step-down Transformer</strong> (Output Voltage < Input Voltage).</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Q17 -->
+            <div class="solution-card border-easy">
+                <span class="badge bg-easy">Easy</span>
+                <div class="question-text">17. Write any two differences between single phase and three phase transformers.</div>
+                <div class="answer-content">
+                    <ol class="list-decimal pl-5">
+                        <li><strong>Construction:</strong> 1-phase has one core unit (2 limbs); 3-phase has a 3-limb core or is a bank of three 1-phase units.</li>
+                        <li><strong>Efficiency/Cost:</strong> For the same power rating, a 3-phase transformer is lighter, smaller, cheaper, and more efficient than three individual single-phase transformers connected together.</li>
+                    </ol>
+                </div>
+            </div>
+
+            <!-- Q18 -->
+            <div class="solution-card border-medium">
+                <span class="badge bg-medium">Medium</span>
+                <div class="question-text">18. Procedure for conducting S.C. and O.C. test on a single-phase transformer.</div>
+                <div class="answer-content">
+                    <p><strong>Open Circuit (O.C.) Test:</strong></p>
+                    <ul class="list-disc pl-5">
+                        <li>HV side is left Open. Instruments connected to LV side.</li>
+                        <li>Rated Voltage applied to LV.</li>
+                        <li>Measures: <strong>Core (Iron) Losses</strong> ($W_0$) and No-load parameters ($R_0, X_0$).</li>
+                    </ul>
+                    <p class="mt-2"><strong>Short Circuit (S.C.) Test:</strong></p>
+                    <ul class="list-disc pl-5">
+                        <li>LV side is Shorted with a thick wire. Instruments connected to HV side.</li>
+                        <li>Low Voltage (variable) applied to HV until Rated Current flows.</li>
+                        <li>Measures: <strong>Full Load Copper Losses</strong> ($W_{sc}$) and Equivalent Impedance ($Z_{eq}, R_{eq}, X_{eq}$).</li>
+                    </ul>
+                    <div class="diagram-box">[Diagram: Circuit diagram for OC Test and SC Test]</div>
+                </div>
+            </div>
+
+            <!-- Q19 -->
+            <div class="solution-card border-easy">
+                <span class="badge bg-easy">Easy</span>
+                <div class="question-text">19. In a single phase transformer, $N_{p}=350$ turns, $N_{s}=1050$ turns, $E_{p}=400V$. Calculate secondary voltage ($E_{s}$).</div>
+                <div class="answer-content">
+                    <p>Using Transformation Ratio:</p>
+                    $$ \frac{E_s}{E_p} = \frac{N_s}{N_p} $$
+                    $$ E_s = E_p \times \frac{N_s}{N_p} = 400 \times \frac{1050}{350} $$
+                    $$ E_s = 400 \times 3 = \mathbf{1200 \, V} $$
+                </div>
+            </div>
+
+            <!-- Q20 -->
+            <div class="solution-card border-medium">
+                <span class="badge bg-medium">Medium</span>
+                <div class="question-text">20. Transformer has 1000 turns on primary, 500 on secondary. Max flux $2 \times 10^{-3}$ Wb. Calculate EMFs (assume f=50Hz).</div>
+                <div class="answer-content">
+                    <p><strong>Formula:</strong> $E = 4.44 f N \phi_m$.</p>
+                    <p><strong>Primary EMF ($E_1$):</strong></p>
+                    $$ E_1 = 4.44 \times 50 \times 1000 \times 0.002 = \mathbf{444 \, V} $$
+                    <p><strong>Secondary EMF ($E_2$):</strong></p>
+                    $$ E_2 = 4.44 \times 50 \times 500 \times 0.002 = \mathbf{222 \, V} $$
+                </div>
+            </div>
+
+            <!-- Q21 -->
+            <div class="solution-card border-medium">
+                <span class="badge bg-medium">Medium</span>
+                <div class="question-text">21. 400 turns primary, 1000 turns secondary. 50Hz, flux 0.045Wb. Find (i) EMFs (ii) EMF per turn.</div>
+                <div class="answer-content">
+                    <p>(i) <strong>Induced EMFs:</strong></p>
+                    $$ E_1 = 4.44 \times 50 \times 400 \times 0.045 = \mathbf{3,996 \, V} $$
+                    $$ E_2 = 4.44 \times 50 \times 1000 \times 0.045 = \mathbf{9,990 \, V} $$
+                    <p>(ii) <strong>EMF per turn:</strong></p>
+                    $$ \frac{E_1}{N_1} = \frac{3996}{400} = \mathbf{9.99 \, V/turn} $$
+                </div>
+            </div>
+
+            <!-- Q22 -->
+            <div class="solution-card border-medium">
+                <span class="badge bg-medium">Medium</span>
+                <div class="question-text">22. A 230/110V, 1KVA, single-phase transformer is connected to 230V supply. Calculate Primary & Secondary currents.</div>
+                <div class="answer-content">
+                    <p>Rating $S = 1 kVA = 1000 VA$.</p>
+                    <p><strong>Primary Current ($I_1$):</strong></p>
+                    $$ I_1 = \frac{S}{V_1} = \frac{1000}{230} = \mathbf{4.35 \, A} $$
+                    <p><strong>Secondary Current ($I_2$):</strong></p>
+                    $$ I_2 = \frac{S}{V_2} = \frac{1000}{110} = \mathbf{9.09 \, A} $$
+                </div>
+            </div>
+
+            <!-- Q23 -->
+            <div class="solution-card border-easy">
+                <span class="badge bg-easy">Easy</span>
+                <div class="question-text">23. An 1100/400 V transformer has 100 turns on secondary. Calculate primary turns.</div>
+                <div class="answer-content">
+                    $$ \frac{N_p}{N_s} = \frac{V_p}{V_s} $$
+                    $$ N_p = 100 \times \frac{1100}{400} = 100 \times 2.75 = \mathbf{275 \text{ turns}} $$
+                </div>
+            </div>
+
+            <!-- Q24 -->
+            <div class="solution-card border-medium">
+                <span class="badge bg-medium">Medium</span>
+                <div class="question-text">24. 600/230V, 50Hz, Core area $400cm^2$, Max flux density $1.18Wb/m^2$. Calculate turns.</div>
+                <div class="answer-content">
+                    <p>Area $A = 400 \times 10^{-4} = 0.04 m^2$.</p>
+                    <p>Max Flux $\phi_m = B_m \times A = 1.18 \times 0.04 = 0.0472 Wb$.</p>
+                    <p><strong>Primary Turns ($N_1$):</strong></p>
+                    $$ N_1 = \frac{E_1}{4.44 f \phi_m} = \frac{600}{4.44 \times 50 \times 0.0472} = \frac{600}{10.48} \approx \mathbf{57} $$
+                    <p><strong>Secondary Turns ($N_2$):</strong></p>
+                    $$ N_2 = \frac{E_2}{4.44 f \phi_m} = \frac{230}{10.48} \approx \mathbf{22} $$
+                </div>
+            </div>
+
+            <!-- Q25 -->
+            <div class="solution-card border-hard">
+                <span class="badge bg-hard">Hard</span>
+                <div class="question-text">25. 5KVA, 500/250V. OC: 500V, 1A, 50W. SC: 25V, 10A, 60W. Determine (i) Efficiency FL 0.8pf (ii) Reg FL 0.8pf (iii) Eff 60% load (iv) Reg 0.6 leading.</div>
+                <div class="answer-content">
+                    <p><strong>Data Analysis:</strong><br>
+                    Iron Loss $P_i = 50W$.<br>
+                    FL Copper Loss $P_{cu} = 60W$ (Since rated HV current $I = 5000/500 = 10A$, and SC test was at 10A).</p>
+
+                    <span class="step-header">(i) Efficiency Full Load, 0.8 pf lag</span>
+                    $$ P_{out} = 5000 \times 0.8 = 4000 W $$
+                    $$ Total Loss = 50 + 60 = 110 W $$
+                    $$ \eta = \frac{4000}{4110} \times 100 = \mathbf{97.32\%} $$
+
+                    <span class="step-header">(ii) Voltage Regulation FL, 0.8 pf lag</span>
+                    <p>$R_{eq} = P_{sc}/I_{sc}^2 = 60/100 = 0.6\Omega$. $Z_{eq} = V_{sc}/I_{sc} = 2.5\Omega$. $X_{eq} = \sqrt{2.5^2-0.6^2} = 2.427\Omega$.</p>
+                    $$ \%Reg = \frac{I(R_{eq}\cos\phi + X_{eq}\sin\phi)}{V} \times 100 $$
+                    $$ = \frac{10(0.6 \times 0.8 + 2.427 \times 0.6)}{500} \times 100 = \mathbf{3.87\%} $$
+
+                    <span class="step-header">(iii) Efficiency at 60% Load</span>
+                    <p>$P_{cu(0.6)} = (0.6)^2 \times 60 = 21.6 W$. Total Loss = $50 + 21.6 = 71.6W$.</p>
+                    <p>Output = $0.6 \times 5000 \times 0.8 = 2400 W$.</p>
+                    $$ \eta = \frac{2400}{2471.6} \times 100 = \mathbf{97.1\%} $$
+
+                    <span class="step-header">(iv) Regulation FL, 0.6 pf leading</span>
+                    <p>Formula for leading: $(R_{eq}\cos\phi - X_{eq}\sin\phi)$.</p>
+                    $$ \%Reg = \frac{10(0.6 \times 0.6 - 2.427 \times 0.8)}{500} \times 100 = \frac{10(0.36 - 1.94)}{500} \times 100 = \mathbf{-3.16\%} $$
+                </div>
+            </div>
+
+            <!-- Q26 -->
+            <div class="solution-card border-easy">
+                <span class="badge bg-easy">Easy</span>
+                <div class="question-text">26. How Auto transformer works? Explain briefly with neat circuit.</div>
+                <div class="answer-content">
+                    <p>An autotransformer has only one winding wound on a laminated core. Part of this winding is common to both primary and secondary circuits. Power is transferred via two mechanisms:</p>
+                    <ul class="list-disc pl-5">
+                        <li><strong>Conduction:</strong> Direct electrical connection.</li>
+                        <li><strong>Induction:</strong> Mutual magnetic coupling (transformation action).</li>
+                    </ul>
+                    <div class="diagram-box">[Diagram: Auto Transformer circuit showing common tapping point]</div>
+                </div>
+            </div>
+
+            <!-- Q27 -->
+            <div class="solution-card border-easy">
+                <span class="badge bg-easy">Easy</span>
+                <div class="question-text">27. What are the typical uses of auto transformer?</div>
+                <div class="answer-content">
+                    <ul class="list-disc pl-5">
+                        <li>As a <strong>Variac</strong> in laboratories to provide variable AC voltage.</li>
+                        <li>As a starter for induction motors to reduce starting voltage.</li>
+                        <li>To boost voltage in transmission lines (booster transformer).</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- UNIT IV -->
+        <section class="mb-16">
+            <h2 class="text-2xl font-bold text-slate-800 mb-6 border-b-4 border-blue-600 pb-2 inline-block">Unit IV: DC & Induction Motors</h2>
+
+            <!-- Q1 -->
+            <div class="solution-card border-easy">
+                <span class="badge bg-easy">Easy</span>
+                <div class="question-text">1. Write the principle of DC Motor?</div>
+                <div class="answer-content">
+                    <p><strong>Principle:</strong> When a current-carrying conductor is placed in a magnetic field, it experiences a mechanical force given by Lorentz force law ($F = BIl \sin\theta$). Since the conductors are on the armature periphery, this force creates a torque that causes rotation. The direction is given by Fleming's Left Hand Rule.</p>
+                </div>
+            </div>
+
+            <!-- Q2 -->
+            <div class="solution-card border-easy">
+                <span class="badge bg-easy">Easy</span>
+                <div class="question-text">2. Give some application of D.C motor.</div>
+                <div class="answer-content">
+                    <ul class="list-disc pl-5">
+                        <li><strong>Shunt Motor:</strong> Lathes, Centrifugal pumps, Fans (Constant speed applications).</li>
+                        <li><strong>Series Motor:</strong> Electric traction, Cranes, Hoists (High starting torque required).</li>
+                        <li><strong>Compound Motor:</strong> Rolling mills, Presses (High starting torque with speed limit).</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Q3 -->
+            <div class="solution-card border-medium">
+                <span class="badge bg-medium">Medium</span>
+                <div class="question-text">3. With a neat circuit diagram Explain the construction and principle of operation of DC Motor and explain the different parts.</div>
+                <div class="answer-content">
+                    <p><strong>Construction Parts:</strong></p>
+                    <ul class="list-disc pl-5">
+                        <li><strong>Yoke:</strong> Outer frame, protects and carries magnetic flux.</li>
+                        <li><strong>Pole Cores & Shoes:</strong> Electromagnets to produce field flux.</li>
+                        <li><strong>Armature Core:</strong> Rotating part, laminated, carries slots for conductors.</li>
+                        <li><strong>Commutator:</strong> Split copper rings, converts AC (induced) to DC (external) or vice versa.</li>
+                        <li><strong>Brushes:</strong> Collect current from rotating commutator.</li>
+                    </ul>
+                    <p><strong>Operation:</strong> DC supply -> Current in Armature -> Force on conductors (F=BIL) -> Torque -> Rotation.</p>
+                    <div class="diagram-box">[Diagram: Cross-sectional view of DC machine]</div>
+                </div>
+            </div>
+
+            <!-- Q4 -->
+            <div class="solution-card border-medium">
+                <span class="badge bg-medium">Medium</span>
+                <div class="question-text">4. Define Torque and derive the expression for torque in a D.C. Motor.</div>
+                <div class="answer-content">
+                    <p><strong>Torque ($T$):</strong> The turning moment of a force.</p>
+                    <p><strong>Derivation:</strong></p>
+                    <p>Electrical Power converted to Mechanical Power: $P_m = E_b I_a$.</p>
+                    <p>Mechanical Power in terms of torque: $P_m = T \times \omega = T \times \frac{2\pi N}{60}$.</p>
+                    <p>Equating both: $T \times \frac{2\pi N}{60} = E_b I_a$.</p>
+                    <p>Substitute Back EMF equation $E_b = \frac{\phi Z N P}{60 A}$:</p>
+                    $$ T \times \frac{2\pi N}{60} = \left(\frac{\phi Z N P}{60 A}\right) I_a $$
+                    $$ T = \frac{\phi Z P I_a}{2\pi A} = 0.159 \phi Z I_a \left(\frac{P}{A}\right) \, Nm $$
+                </div>
+            </div>
+
+            <!-- Q5 -->
+            <div class="solution-card border-easy">
+                <span class="badge bg-easy">Easy</span>
+                <div class="question-text">5. Explain the different types of dc motor with neat sketch.</div>
+                <div class="answer-content">
+                    <ol class="list-decimal pl-5">
+                        <li><strong>DC Series Motor:</strong> Field winding is connected in series with the armature. ($I_L = I_{se} = I_a$).</li>
+                        <li><strong>DC Shunt Motor:</strong> Field winding is connected in parallel across the armature. ($V = Constant$, Flux $\approx$ Constant).</li>
+                        <li><strong>DC Compound Motor:</strong> Has both series and shunt fields. (Cumulative or Differential).</li>
+                    </ol>
+                    <div class="diagram-box">[Diagram: Circuits for Series, Shunt, and Compound motors]</div>
+                </div>
+            </div>
+
+            <!-- Q6 -->
+            <div class="solution-card border-easy">
+                <span class="badge bg-easy">Easy</span>
+                <div class="question-text">6. Explain back emf in a DC motor.</div>
+                <div class="answer-content">
+                    <p>When the armature rotates in the magnetic field, conductors cut flux and an EMF is induced according to Faraday's law. By Lenz's law, this EMF opposes the applied voltage $V$ that causes the rotation. Hence, it is called Back EMF ($E_b$).</p>
+                    $$ V = E_b + I_a R_a $$
+                    <p>Significance: It makes the DC motor a self-regulating machine. If load increases, speed drops, $E_b$ drops, allowing more $I_a$ to flow to handle the load.</p>
+                </div>
+            </div>
+
+            <!-- Q7 -->
+            <div class="solution-card border-easy">
+                <span class="badge bg-easy">Easy</span>
+                <div class="question-text">7. Distinguish the difference between DC Motor and DC Generator.</div>
+                <div class="answer-content">
+                    <ul class="list-disc pl-5">
+                        <li><strong>Energy Conversion:</strong> Motor converts Electrical to Mechanical. Generator converts Mechanical to Electrical.</li>
+                        <li><strong>EMF Direction:</strong> In Motor, induced EMF opposes current ($V > E_b$). In Generator, induced EMF drives current ($E_g > V$).</li>
+                        <li><strong>Rule:</strong> Motor uses Fleming's Left Hand Rule. Generator uses Right Hand Rule.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Q8 -->
+            <div class="solution-card border-easy">
+                <span class="badge bg-easy">Easy</span>
+                <div class="question-text">8. Demonstrate How to reverse the direction of rotation of DC Motor?</div>
+                <div class="answer-content">
+                    <p>The direction of torque depends on the direction of Armature Current ($I_a$) and Field Flux ($\phi$). To reverse rotation:</p>
+                    <ol class="list-decimal pl-5">
+                        <li>Reverse the connections to the <strong>Armature</strong> terminals.</li>
+                        <li>OR, Reverse the connections to the <strong>Field</strong> terminals.</li>
+                    </ol>
+                    <p><strong>Note:</strong> Reversing the supply terminals reverses <em>both</em> current and flux, so the direction of rotation remains unchanged.</p>
+                </div>
+            </div>
+
+            <!-- Q9 -->
+            <div class="solution-card border-easy">
+                <span class="badge bg-easy">Easy</span>
+                <div class="question-text">9. Criticize "belt drive not suitable for DC Series Motor why?"</div>
+                <div class="answer-content">
+                    <p>In a DC Series Motor, speed is inversely proportional to flux ($N \propto 1/\phi$). Since $\phi \propto I_a$, at no load, current is very small, flux is negligible, and speed becomes dangerously high ($N \to \infty$).</p>
+                    <p>If a belt drive breaks, the load drops to zero, and the motor will race to destructive speeds, potentially causing the armature to burst due to centrifugal force. Hence, direct coupling or gears are used.</p>
+                </div>
+            </div>
+
+            <!-- Q10 -->
+            <div class="solution-card border-medium">
+                <span class="badge bg-medium">Medium</span>
+                <div class="question-text">10. Mention the effects of differential compounding and cumulatively compound on the performance of DC Compound motor.</div>
+                <div class="answer-content">
+                    <ul class="list-disc pl-5">
+                        <li><strong>Cumulative Compound:</strong> Series flux aids shunt flux ($\phi_{total} = \phi_{sh} + \phi_{se}$). Provides high starting torque (like series) but has a definite no-load speed (like shunt). Used for intermittent high loads.</li>
+                        <li><strong>Differential Compound:</strong> Series flux opposes shunt flux ($\phi_{total} = \phi_{sh} - \phi_{se}$). As load increases, flux decreases, and speed tries to increase. This leads to instability. Rarely used.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Q11 -->
+            <div class="solution-card border-medium">
+                <span class="badge bg-medium">Medium</span>
+                <div class="question-text">11. Discuss why starting current is high at the moment of starting a DC Motor? Methods of limiting it.</div>
+                <div class="answer-content">
+                    <p><strong>Reason:</strong> $I_a = \frac{V - E_b}{R_a}$. At start, speed $N=0$, so Back EMF $E_b=0$. Thus $I_{start} = V/R_a$. Since armature resistance $R_a$ is very small, the starting current is dangerously high (5-7 times rated current).</p>
+                    <p><strong>Methods to Limit:</strong></p>
+                    <ul class="list-disc pl-5">
+                        <li><strong>3-Point Starter:</strong> Inserts external resistance in series with armature during starting.</li>
+                        <li><strong>4-Point Starter:</strong> Similar to 3-point but handles speed control by field weakening better.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Q12 -->
+            <div class="solution-card border-hard">
+                <span class="badge bg-hard">Hard</span>
+                <div class="question-text">12. A 460V DC Series Motor runs at 1000 rpm calculate the speed and percentage change in torque if the load is reduced so that the motor is taking 30A. Total resistances 0.8Ω. Assume flux is proportional to field current.</div>
+                <div class="answer-content">
+                    <p><strong>Issue:</strong> Initial current ($I_1$) is missing. Assuming standard problem context where rated current is higher, e.g., let's assume $I_1 = 50A$ for calculation purposes.</p>
+                    <p><strong>Given:</strong> $V=460V, R=0.8\Omega, N_1=1000$. Case 2: $I_2=30A$. Flux $\phi \propto I$.</p>
+                    <span class="step-header">Step 1: Calculate Back EMFs</span>
+                    $$ E_{b1} = V - I_1 R = 460 - (50 \times 0.8) = 420 \, V $$
+                    $$ E_{b2} = V - I_2 R = 460 - (30 \times 0.8) = 436 \, V $$
+                    <span class="step-header">Step 2: Speed Calculation</span>
+                    <p>Relation: $N \propto \frac{E_b}{\phi} \propto \frac{E_b}{I}$.</p>
+                    $$ \frac{N_2}{N_1} = \frac{E_{b2}}{E_{b1}} \times \frac{I_1}{I_2} $$
+                    $$ N_2 = 1000 \times \frac{436}{420} \times \frac{50}{30} = \mathbf{1730 \, rpm} $$
+                    <span class="step-header">Step 3: Torque Change</span>
+                    <p>$T \propto \phi I \propto I^2$.</p>
+                    $$ \frac{T_2}{T_1} = \left(\frac{30}{50}\right)^2 = 0.36 $$
+                    <p>Percentage change = $(1 - 0.36) \times 100 = \mathbf{64\% \text{ reduction}}$.</p>
+                </div>
+            </div>
+
+            <!-- Q13 -->
+            <div class="solution-card border-hard">
+                <span class="badge bg-hard">Hard</span>
+                <div class="question-text">13. A 400 Volts DC Shunt Motor has a no load speed of 1450 RPM, line current 9A. At full load, line current is 75A. Shunt res 200 Ohms, arm res 0.5 Ohm. Evaluate full load speed.</div>
+                <div class="answer-content">
+                    <span class="step-header">Step 1: Calculate Constant Field Current</span>
+                    $$ I_{sh} = \frac{400}{200} = 2 \, A $$
+                    <span class="step-header">Step 2: Calculate Armature Currents</span>
+                    <p>No Load: $I_{a0} = I_{L0} - I_{sh} = 9 - 2 = 7 \, A$.</p>
+                    <p>Full Load: $I_{aFL} = I_{LFL} - I_{sh} = 75 - 2 = 73 \, A$.</p>
+                    <span class="step-header">Step 3: Calculate Back EMFs</span>
+                    $$ E_{b0} = V - I_{a0}R_a = 400 - (7 \times 0.5) = 396.5 \, V $$
+                    $$ E_{bFL} = V - I_{aFL}R_a = 400 - (73 \times 0.5) = 363.5 \, V $$
+                    <span class="step-header">Step 4: Speed Relation ($N \propto E_b$ for constant $\phi$)</span>
+                    $$ N_{FL} = N_0 \times \frac{E_{bFL}}{E_{b0}} = 1450 \times \frac{363.5}{396.5} = \mathbf{1329.3 \, rpm} $$
+                </div>
+            </div>
+
+            <!-- Q14 -->
+            <div class="solution-card border-hard">
+                <span class="badge bg-hard">Hard</span>
+                <div class="question-text">14. 25HP, 250V DC Series motor, $R_a=0.1, R_f=0.05$, brush drop 3V. Line current 80A, speed 600rpm. Find speed when line current is 100A.</div>
+                <div class="answer-content">
+                    <p>Total resistance $R = 0.1 + 0.05 = 0.15 \Omega$.</p>
+                    <span class="step-header">Step 1: Calculate Back EMFs</span>
+                    $$ E_{b1} = 250 - 80(0.15) - 3 = 235 \, V $$
+                    $$ E_{b2} = 250 - 100(0.15) - 3 = 232 \, V $$
+                    <span class="step-header">Step 2: Speed Calculation</span>
+                    <p>Series motor: $\phi \propto I$.</p>
+                    $$ \frac{N_2}{600} = \frac{232}{235} \times \frac{80}{100} $$
+                    $$ N_2 = 600 \times 0.987 \times 0.8 = \mathbf{473.8 \, rpm} $$
+                </div>
+            </div>
+
+            <!-- Q15 -->
+            <div class="solution-card border-medium">
+                <span class="badge bg-medium">Medium</span>
+                <div class="question-text">15. Explain the construction, working principle of various types of single phase induction motor.</div>
+                <div class="answer-content">
+                    <p>Single phase IMs are not self-starting. They require an auxiliary winding to create a phase shift.</p>
+                    <ul class="list-disc pl-5">
+                        <li><strong>Split Phase:</strong> Resistance is added to aux winding to create phase difference.</li>
+                        <li><strong>Capacitor Start:</strong> Capacitor in series with aux winding provides high starting torque and large phase shift ($90^\circ$).</li>
+                        <li><strong>Shaded Pole:</strong> Copper band on pole face creates a shifting flux.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Q16 -->
+            <div class="solution-card border-easy">
+                <span class="badge bg-easy">Easy</span>
+                <div class="question-text">16. List out the types of induction motor.</div>
+                <div class="answer-content">
+                    <p><strong>Based on Rotor Construction:</strong></p>
+                    <ol class="list-decimal pl-5">
+                        <li>Squirrel Cage Induction Motor (Robust, constant speed).</li>
+                        <li>Slip Ring / Wound Rotor Induction Motor (High starting torque, speed control possible).</li>
+                    </ol>
+                    <p><strong>Based on Phase:</strong> Single Phase and Three Phase.</p>
+                </div>
+            </div>
+
+            <!-- Q17 -->
+            <div class="solution-card border-medium">
+                <span class="badge bg-medium">Medium</span>
+                <div class="question-text">17. Draw the power flow diagram of a 3 phase induction motor and explain each stage?</div>
+                <div class="answer-content">
+                    <p><strong>Stages:</strong></p>
+                    <ol class="list-decimal pl-5">
+                        <li><strong>Stator Input ($P_{in}$):</strong> Electrical supply.</li>
+                        <li><strong>Stator Losses:</strong> Stator Copper Loss ($I^2R$) + Iron Loss.</li>
+                        <li><strong>Rotor Input ($P_2$):</strong> Power transferred across air gap.</li>
+                        <li><strong>Rotor Copper Loss ($P_{cu}$):</strong> Slip times Rotor Input ($sP_2$).</li>
+                        <li><strong>Gross Mechanical Power ($P_m$):</strong> $P_2 - P_{cu}$.</li>
+                        <li><strong>Rotational Losses:</strong> Friction and Windage.</li>
+                        <li><strong>Shaft Output ($P_{out}$):</strong> Useful mechanical power.</li>
+                    </ol>
+                </div>
+            </div>
+
+            <!-- Q18 -->
+            <div class="solution-card border-medium">
+                <span class="badge bg-medium">Medium</span>
+                <div class="question-text">18. Explain the principle of operation of 3-phase induction motor and explain how the rotating magnetic field is produced.</div>
+                <div class="answer-content">
+                    <p><strong>RMF Production:</strong> When 3-phase currents flow in windings displaced by $120^\circ$ space, they produce a magnetic field of constant magnitude ($1.5 \phi_m$) rotating at synchronous speed $N_s = 120f/P$.</p>
+                    <p><strong>Operation:</strong> This RMF cuts the stationary rotor conductors, inducing EMF and current. By Lenz's law, the rotor experiences torque and rotates in the direction of the field to catch up (reduce relative speed).</p>
+                </div>
+            </div>
+
+            <!-- Q19 -->
+            <div class="solution-card border-medium">
+                <span class="badge bg-medium">Medium</span>
+                <div class="question-text">19. Describe the construction and principle of operation of a 3-phase induction motor with neat sketch.</div>
+                <div class="answer-content">
+                    <p><strong>Stator:</strong> Steel frame supporting a hollow laminated core with slots holding 3-phase windings.</p>
+                    <p><strong>Rotor:</strong></p>
+                    <ul class="list-disc pl-5">
+                        <li><strong>Squirrel Cage:</strong> Copper/Aluminum bars shorted by end rings. Simple, rugged.</li>
+                        <li><strong>Slip Ring:</strong> 3-phase winding connected to slip rings. Allows external resistance.</li>
+                    </ul>
+                    <div class="diagram-box">[Diagram: Stator and Rotor construction details]</div>
+                </div>
+            </div>
+
+            <!-- Q20 -->
+            <div class="solution-card border-easy">
+                <span class="badge bg-easy">Easy</span>
+                <div class="question-text">20. Write the merits and demerits of slip-ring induction motor.</div>
+                <div class="answer-content">
+                    <p><strong>Merits:</strong></p>
+                    <ul class="list-disc pl-5">
+                        <li>Very high starting torque.</li>
+                        <li>Low starting current.</li>
+                        <li>Speed control is possible via rotor resistance.</li>
+                    </ul>
+                    <p><strong>Demerits:</strong></p>
+                    <ul class="list-disc pl-5">
+                        <li>Higher cost.</li>
+                        <li>More maintenance due to brushes and slip rings.</li>
+                        <li>Lower efficiency due to rotor resistance losses.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Q21 -->
+            <div class="solution-card border-easy">
+                <span class="badge bg-easy">Easy</span>
+                <div class="question-text">21. Give the conditions for maximum torque for 3-phase induction motor?</div>
+                <div class="answer-content">
+                    <p>Maximum torque occurs when the <strong>Rotor Resistance ($R_2$) equals the Rotor Reactance at that slip ($sX_2$)</strong>.</p>
+                    $$ R_2 = s_m X_2 $$
+                    <p>Slip at max torque $s_m = R_2 / X_2$.</p>
+                </div>
+            </div>
+
+            <!-- Q22 -->
+            <div class="solution-card border-medium">
+                <span class="badge bg-medium">Medium</span>
+                <div class="question-text">22. Derive a relation between full load torque and maximum torque of a three phase Induction Motor.</div>
+                <div class="answer-content">
+                    <p>Torque Equation: $T \propto \frac{s R_2}{R_2^2 + (sX_2)^2}$.</p>
+                    <p>Let $a = R_2/X_2 = s_m$ (slip at max torque).</p>
+                    <p>Ratio:</p>
+                    $$ \frac{T_{fl}}{T_{max}} = \frac{2 s_{fl} s_m}{s_{fl}^2 + s_m^2} $$
+                    <p>Where $s_{fl}$ is full load slip.</p>
+                </div>
+            </div>
+
+            <!-- Q23 -->
+            <div class="solution-card border-medium">
+                <span class="badge bg-medium">Medium</span>
+                <div class="question-text">23. What is the procedure to conduct the blocked rotor test on 3-phase induction motor?</div>
+                <div class="answer-content">
+                    <ul class="list-disc pl-5">
+                        <li><strong>Setup:</strong> Rotor is locked (prevented from rotating).</li>
+                        <li><strong>Supply:</strong> Low voltage is applied to the stator to circulate rated full-load current.</li>
+                        <li><strong>Measurements:</strong> Short-circuit voltage ($V_{sc}$), Current ($I_{sc}$), and Power ($W_{sc}$).</li>
+                        <li><strong>Outcome:</strong> Determines equivalent impedance, copper losses, and parameters for the circle diagram. Analogous to transformer SC test.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Q24 -->
+            <div class="solution-card border-easy">
+                <span class="badge bg-easy">Easy</span>
+                <div class="question-text">24. Define slip and its condition at the time of starting of 3-phase IM.</div>
+                <div class="answer-content">
+                    <p><strong>Slip ($s$):</strong> The difference between synchronous speed ($N_s$) and rotor speed ($N$) expressed as a fraction of synchronous speed.</p>
+                    $$ s = \frac{N_s - N}{N_s} $$
+                    <p><strong>At Starting:</strong> The rotor is stationary, so $N = 0$. Therefore, $s = \frac{N_s - 0}{N_s} = 1$.</p>
+                </div>
+            </div>
+
+            <!-- Q25 -->
+            <div class="solution-card border-medium">
+                <span class="badge bg-medium">Medium</span>
+                <div class="question-text">25. Derive the torque-slip equation for a 3-phase induction motor and equation for slip at max torque.</div>
+                <div class="answer-content">
+                    <p>Rotor Current $I_2 = \frac{s E_2}{\sqrt{R_2^2 + (s X_2)^2}}$.</p>
+                    <p>Torque $T \propto \text{Rotor Input Power} / N_s$. Input Power = $3 I_2^2 R_2 / s$.</p>
+                    $$ T = \frac{3}{2\pi N_s} \times \frac{s E_2^2 R_2}{R_2^2 + (sX_2)^2} $$
+                    <p>Differentiating w.r.t slip $s$ and equating to 0 gives condition $R_2 = s X_2$.</p>
+                    <p>Slip at max torque $s_{max} = R_2 / X_2$.</p>
+                </div>
+            </div>
+
+            <!-- Q26 -->
+            <div class="solution-card border-medium">
+                <span class="badge bg-medium">Medium</span>
+                <div class="question-text">26. How is the speed of a 3-phase induction motor controlled by its stator voltage control?</div>
+                <div class="answer-content">
+                    <p>Torque is proportional to the square of the voltage ($T \propto sV^2$).</p>
+                    <p>If supply voltage $V$ is reduced, the developed torque decreases. To drive the same constant load torque, the motor must increase its slip (slow down). Thus, speed decreases.</p>
+                    <p><strong>Limitation:</strong> Range is limited as efficiency drops and overheating risks increase.</p>
+                </div>
+            </div>
+
+            <!-- Q27 -->
+            <div class="solution-card border-medium">
+                <span class="badge bg-medium">Medium</span>
+                <div class="question-text">27. 400V, 50Hz, 6 pole, 3-phase induction motor. Rotor input 75 KW. Rotor EMF makes 100 complete alterations per minute. Calculate (i) slip (ii) rotor speed (iii) rotor copper losses per phase (iv) Mechanical power.</div>
+                <div class="answer-content">
+                    <span class="step-header">(i) Slip</span>
+                    <p>Rotor frequency $f' = 100 \text{ cycles/min} = 100/60 = 1.667 \text{ Hz}$.</p>
+                    $$ s = \frac{f'}{f} = \frac{1.667}{50} = \mathbf{0.0333} $$
+                    <span class="step-header">(ii) Rotor Speed</span>
+                    $$ N_s = \frac{120 \times 50}{6} = 1000 \text{ rpm} $$
+                    $$ N = N_s (1-s) = 1000(1-0.0333) = \mathbf{966.7 \text{ rpm}} $$
+                    <span class="step-header">(iii) Rotor Copper Losses</span>
+                    <p>Total Cu Loss = $s \times P_{in} = 0.0333 \times 75 kW = 2.5 kW$.</p>
+                    $$ \text{Per phase} = \frac{2500}{3} = \mathbf{833.3 \text{ W}} $$
+                    <span class="step-header">(iv) Mechanical Power</span>
+                    $$ P_{mech} = P_{in} (1-s) = 75 - 2.5 = \mathbf{72.5 \text{ kW}} $$
+                </div>
+            </div>
+
+            <!-- Q28 -->
+            <div class="solution-card border-hard">
+                <span class="badge bg-hard">Hard</span>
+                <div class="question-text">28. 10 kW, 400 V, 3-phase, 4 pole, 50 Hz delta motor. NL: 8A, 660W. FL: 18A, 11.20kW. Stator res 1.2Ω. Friction 420W. Calculate losses and speed.</div>
+                <div class="answer-content">
+                    <p><em>Note on Data: Delta motor means phase current = Line/$\sqrt{3}$. Resistance is per phase.</em></p>
+                    <span class="step-header">(i) Stator Core Loss</span>
+                    <p>NL Stator Cu Loss = $3 \times I_{ph}^2 \times R = 3 \times (8/\sqrt{3})^2 \times 1.2 = 3 \times 21.33 \times 1.2 = 76.8 W$.</p>
+                    <p>Constant Loss (Core + Fric) = NL Input - NL Cu = $660 - 76.8 = 583.2 W$.</p>
+                    <p>Core Loss = $583.2 - 420 (friction) = \mathbf{163.2 W}$.</p>
+                    
+                    <span class="step-header">(ii) Rotor Losses at FL</span>
+                    <p>FL Stator Cu Loss = $3 \times (18/\sqrt{3})^2 \times 1.2 = 3 \times 108 \times 1.2 = 388.8 W$.</p>
+                    <p>Rotor Input = Input - Stator Cu - Core = $11200 - 388.8 - 163.2 = 10,648 W$.</p>
+                    <p>Output (Shaft) = $10 kW = 10,000 W$.</p>
+                    <p>Gross Mech Power = Output + Friction = $10000 + 420 = 10,420 W$.</p>
+                    <p>Rotor Cu Loss = Rotor Input - Gross Mech = $10648 - 10420 = \mathbf{228 W}$.</p>
+                    
+                    <span class="step-header">(iv) Full Load Speed</span>
+                    <p>Slip $s = \frac{\text{Rotor Cu Loss}}{\text{Rotor Input}} = \frac{228}{10648} = 0.0214$.</p>
+                    <p>$N_s = 1500$. $N = 1500(1 - 0.0214) = \mathbf{1468 \text{ rpm}}$.</p>
+                </div>
+            </div>
+
+            <!-- Q29 -->
+            <div class="solution-card border-hard">
+                <span class="badge bg-hard">Hard</span>
+                <div class="question-text">29. 6 pole, 3-phase 50 Hz IM, $R_2=0.3\Omega$, $X_{2(standstill)}=1.5\Omega$, Slip ring EMF 175V. Calculate (a) slip at 960 rpm, (b) rotor emf/phase, (c) reactance at 950 rpm.</div>
+                <div class="answer-content">
+                    <p>Sync Speed $N_s = 1000$ rpm.</p>
+                    <span class="step-header">(a) Slip at 960 rpm</span>
+                    $$ s = \frac{1000 - 960}{1000} = \mathbf{0.04} $$
+                    <span class="step-header">(b) Rotor EMF/phase and Freq</span>
+                    <p>Assuming 175V is Line Voltage at Standstill. Phase $E_2 = 175/\sqrt{3} \approx 101 V$.</p>
+                    <p>At running: $E_{run} = s E_2 = 0.04 \times 101 = \mathbf{4.04 V}$.</p>
+                    <p>Freq $f' = s f = 0.04 \times 50 = \mathbf{2 Hz}$.</p>
+                    <span class="step-header">(c) Reactance at 950 rpm</span>
+                    <p>Slip at 950: $s = 0.05$.</p>
+                    $$ X_{run} = s X_2 = 0.05 \times 1.5 = \mathbf{0.075 \Omega} $$
+                </div>
+            </div>
+
+            <!-- Q30 -->
+            <div class="solution-card border-hard">
+                <span class="badge bg-hard">Hard</span>
+                <div class="question-text">30. 415 V, 29.8 kW Motor Data: NL: 415 V, 21 A, 1250 W. LR: 100 V, 45 A, 2730 W. Construct circle diagram parameters.</div>
+                <div class="answer-content">
+                    <p><strong>Calculations for Construction:</strong></p>
+                    <ol class="list-decimal pl-5">
+                        <li><strong>No Load Vector:</strong> $V = 415V$, $I_0 = 21A$.
+                            <br>$\cos\phi_0 = 1250 / (\sqrt{3} \times 415 \times 21) = 0.082$. Angle $\phi_0 = 85.3^\circ$.</li>
+                        <li><strong>Blocked Rotor (Normalized to 415V):</strong>
+                            <br>$I_{SN} = 45 \times (415/100) = 186.75 A$.
+                            <br>$W_{SN} = 2730 \times (415/100)^2 = 47,020 W$.
+                            <br>$\cos\phi_{sc} = 2730 / (\sqrt{3} \times 100 \times 45) = 0.35$. Angle $\phi_{sc} = 69.5^\circ$.</li>
+                        <li><strong>Drawing:</strong>
+                            <br>Draw $I_0$ at $85.3^\circ$. Draw $I_{SN}$ at $69.5^\circ$. Join tips to get output line.
+                            <br>Draw perpendicular bisector to find center of circle.
+                            <br>Torque line separates Stator/Rotor Cu losses (assumed equal, so bisect the vertical intercept).</li>
+                    </ol>
+                </div>
+            </div>
+
+            <!-- Q31 -->
+            <div class="solution-card border-hard">
+                <span class="badge bg-hard">Hard</span>
+                <div class="question-text">31. 3-phase 400V IM. NL: 400V, 1250W, 9A. SC: 150V, 4kW, 38A. Normal rating 20.27 hp. Circle diagram parameters.</div>
+                <div class="answer-content">
+                    <p><strong>Parameters:</strong></p>
+                    <ol class="list-decimal pl-5">
+                        <li>$I_0 = 9A$. $\cos\phi_0 = 1250/(\sqrt{3} \times 400 \times 9) = 0.2$. $\phi_0 = 78.4^\circ$.</li>
+                        <li>Normalize SC: $I_{SN} = 38 \times (400/150) = 101.3 A$.
+                            <br>Power factor SC: $\cos\phi_{sc} = 4000/(\sqrt{3} \times 150 \times 38) = 0.405$. $\phi_{sc} = 66.1^\circ$.</li>
+                        <li>Output Line: Based on 20.27 HP = $15.1 kW$ output. Draw horizontal line at height equivalent to $15.1kW$ (scaled) to intersect circle for operating point.</li>
+                    </ol>
+                </div>
+            </div>
+
+            <!-- Q32 -->
+            <div class="solution-card border-hard">
+                <span class="badge bg-hard">Hard</span>
+                <div class="question-text">32. A 4-pole induction motor and 6-pole induction motor are connected in cumulative cascade at 50 Hz. Secondary freq of 6-pole is 1.0 Hz. Determine slip and combined speed.</div>
+                <div class="answer-content">
+                    <p><strong>Concept:</strong> Cumulative cascade acts as a single machine with poles $P = P_1 + P_2 = 4 + 6 = 10$.</p>
+                    <span class="step-header">Step 1: Set Synchronous Speed</span>
+                    $$ N_{set} = \frac{120 f}{P_1 + P_2} = \frac{120 \times 50}{10} = 600 \text{ rpm} $$
+                    <span class="step-header">Step 2: Set Slip</span>
+                    <p>The frequency from the second rotor ($f_{r2}$) represents the slip frequency of the set.</p>
+                    $$ s_{set} = \frac{f_{r2}}{f} = \frac{1.0}{50} = \mathbf{0.02} $$
+                    <span class="step-header">Step 3: Combined Speed</span>
+                    $$ N = N_{set}(1-s_{set}) = 600(1-0.02) = \mathbf{588 \text{ rpm}} $$
+                    <span class="step-header">Step 4: Individual Slips</span>
+                    <p>Machine 1 ($N_{s1}=1500$): $s_1 = (1500-588)/1500 = \mathbf{0.608}$.</p>
+                    <p>Machine 2 ($N_{s2}=120 \times (s_1 f) / P_2 = 120(30.4)/6 = 608$): $s_2 = (608-588)/608 = \mathbf{0.033}$.</p>
+                </div>
+            </div>
+        </section>
+
+        <footer class="text-center text-slate-400 text-sm py-10 border-t">
+            <p>Generated for BEE Question Bank Revision </p>
+        </footer>
+    </div>
+</body>
+</html>

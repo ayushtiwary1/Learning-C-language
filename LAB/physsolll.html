@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laser Physics Solutions</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- MathJax Configuration -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            svg: {
+                fontCache: 'global'
+            }
+        };
+    </script>
+    <!-- Load MathJax -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+            color: #1e293b;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .math-text {
+            font-family: 'Lora', serif;
+        }
+
+        .card {
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+        
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        .answer-box {
+            border-left: 4px solid #3b82f6;
+            background-color: #eff6ff;
+        }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col">
+
+    <!-- Header -->
+    <header class="bg-slate-900 text-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-4xl mx-auto px-4 py-6 flex justify-between items-center">
+            <div>
+                <h1 class="text-2xl font-bold tracking-tight">Laser Physics</h1>
+                <p class="text-slate-400 text-sm mt-1">Assignment Solutions & Analysis</p>
+            </div>
+            <div class="hidden sm:block text-right">
+                <span class="bg-blue-600 text-xs font-semibold px-2.5 py-0.5 rounded text-white">Full Solutions</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow container mx-auto px-4 py-10 max-w-4xl">
+        
+        <!-- Part 1 Section -->
+        <section class="mb-16">
+            <div class="flex items-center gap-3 mb-8 border-b border-slate-200 pb-4">
+                <div class="bg-blue-600 text-white rounded-full w-10 h-10 flex items-center justify-center font-bold text-lg">1</div>
+                <h2 class="text-3xl font-bold text-slate-800">Descriptive Questions</h2>
+            </div>
+
+            <div class="space-y-8">
+
+                <!-- Q1 -->
+                <article class="bg-white rounded-xl shadow-sm border border-slate-100 p-6 card">
+                    <h3 class="font-bold text-lg text-slate-900 mb-3">Q.1 What is Laser?</h3>
+                    <div class="text-slate-700 leading-relaxed answer-box p-4 rounded-r-lg">
+                        <p><strong>LASER</strong> is an acronym for <strong>L</strong>ight <strong>A</strong>mplification by <strong>S</strong>timulated <strong>E</strong>mission of <strong>R</strong>adiation. Unlike ordinary light sources (like incandescent bulbs) which emit incoherent and multidirectional light via spontaneous emission, a laser produces a highly organized beam. It operates on the principle of stimulated emission, where an incident photon triggers an excited atom to release a second identical photon. This process results in a beam that is intense, monochromatic (single wavelength), coherent (waves are in phase), and highly directional.</p>
+                    </div>
+                </article>
+
+                <!-- Q2 -->
+                <article class="bg-white rounded-xl shadow-sm border border-slate-100 p-6 card">
+                    <h3 class="font-bold text-lg text-slate-900 mb-3">Q.2 What are Einstein's coefficients?</h3>
+                    <div class="text-slate-700 leading-relaxed answer-box p-4 rounded-r-lg">
+                        <p class="mb-2">In 1917, Einstein proposed three probability coefficients to describe the interaction of electromagnetic radiation with matter. These govern the rates of absorption and emission:</p>
+                        <ul class="list-disc pl-5 space-y-2">
+                            <li><strong>Absorption Coefficient ($B_{12}$):</strong> This represents the probability per unit energy density that an atom in the ground state will absorb a photon and jump to an excited state.</li>
+                            <li><strong>Spontaneous Emission Coefficient ($A_{21}$):</strong> This represents the probability per unit time that an atom in an excited state will decay to a lower state naturally, emitting a photon in a random direction and phase.</li>
+                            <li><strong>Stimulated Emission Coefficient ($B_{21}$):</strong> This represents the probability that an incident photon will trigger an excited atom to drop to a lower state, emitting a coherent clone photon.</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <!-- Q3 -->
+                <article class="bg-white rounded-xl shadow-sm border border-slate-100 p-6 card">
+                    <h3 class="font-bold text-lg text-slate-900 mb-3">Q.3 What is a gas laser?</h3>
+                    <div class="text-slate-700 leading-relaxed answer-box p-4 rounded-r-lg">
+                        <p>A gas laser is a type of laser in which the active gain medium is a gas or a mixture of gases typically contained within a glass or quartz tube. Because the density of atoms in a gas is much lower than in solids, gas lasers typically produce light with very high spectral purity and narrow bandwidth. The pumping mechanism is almost always an electric discharge, where energetic electrons collide with gas atoms to excite them. Common examples include the Helium-Neon (He-Ne) laser, used in labs for alignment, and the Carbon Dioxide ($\text{CO}_2$) laser, widely used for industrial cutting and welding.</p>
+                    </div>
+                </article>
+
+                <!-- Q4 -->
+                <article class="bg-white rounded-xl shadow-sm border border-slate-100 p-6 card">
+                    <h3 class="font-bold text-lg text-slate-900 mb-3">Q.4 What is stimulated emission?</h3>
+                    <div class="text-slate-700 leading-relaxed answer-box p-4 rounded-r-lg">
+                        <p>Stimulated emission is the fundamental quantum process responsible for laser action. It occurs when an incoming photon of energy $h\nu$ interacts with an atom that is already in an excited state. If the photon's energy matches the energy difference between the excited state and a lower state, it triggers the atom to drop down. This releases a second photon that is identical to the incident photon in every way: phase, frequency, polarization, and direction. This "cloning" effect allows for the amplification of light intensity as the photons multiply in an avalanche effect.</p>
+                    </div>
+                </article>
+
+                <!-- Q5 -->
+                <article class="bg-white rounded-xl shadow-sm border border-slate-100 p-6 card">
+                    <h3 class="font-bold text-lg text-slate-900 mb-3">Q.5 Write the differences between spontaneous and stimulated emission.</h3>
+                    <div class="overflow-x-auto rounded-lg border border-slate-200">
+                        <table class="w-full text-left text-sm text-slate-600">
+                            <thead class="bg-slate-50 text-slate-900 uppercase font-semibold">
+                                <tr>
+                                    <th class="px-6 py-3 border-b border-slate-200">Spontaneous Emission</th>
+                                    <th class="px-6 py-3 border-b border-slate-200">Stimulated Emission</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-200 bg-white">
+                                <tr>
+                                    <td class="px-6 py-4">It is a random, natural process where an atom decays without external influence.</td>
+                                    <td class="px-6 py-4">It is an induced process triggered by an external incident photon.</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4">The emitted light is <strong>incoherent</strong>; waves have random phase relationships.</td>
+                                    <td class="px-6 py-4">The emitted light is highly <strong>coherent</strong>; waves are in perfect phase.</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4">Photons are emitted in random directions (isotropic).</td>
+                                    <td class="px-6 py-4">Photons are emitted in the exact same direction as the incident photon.</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4"><strong>Example:</strong> Light from the sun, candles, or LED bulbs.</td>
+                                    <td class="px-6 py-4"><strong>Example:</strong> Laser pointers, barcode scanners, fiber optics.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </article>
+
+                <!-- Q6 -->
+                <article class="bg-white rounded-xl shadow-sm border border-slate-100 p-6 card">
+                    <h3 class="font-bold text-lg text-slate-900 mb-3">Q.6 What is meant by population inversion and how is it achieved?</h3>
+                    <div class="text-slate-700 leading-relaxed answer-box p-4 rounded-r-lg">
+                        <ul class="list-none space-y-3">
+                            <li>
+                                <strong class="text-slate-900 block mb-1">Definition:</strong>
+                                Under normal thermal equilibrium conditions, Boltzmann statistics dictate that more atoms exist in lower energy states than higher ones ($N_1 > N_2$). <strong>Population Inversion</strong> is a non-equilibrium state where this ratio is reversed, meaning the number of atoms in a higher energy (excited) state ($N_2$) exceeds the number of atoms in the lower energy (ground) state ($N_1$). This condition ($N_2 > N_1$) is mandatory for stimulated emission to dominate over absorption.
+                            </li>
+                            <li>
+                                <strong class="text-slate-900 block mb-1">Achievement:</strong>
+                                Population inversion is achieved through a process called <strong>Pumping</strong>. This involves supplying external energy to the system to "pump" atoms from the ground state to the excited state. Common pumping methods include optical pumping (flash lamps), electrical discharge (gas lasers), and direct current injection (semiconductor lasers).
+                            </li>
+                        </ul>
+                    </div>
+                </article>
+
+                <!-- Q7 -->
+                <article class="bg-white rounded-xl shadow-sm border border-slate-100 p-6 card">
+                    <h3 class="font-bold text-lg text-slate-900 mb-3">Q.7 What are the properties of the laser beam?</h3>
+                    <div class="text-slate-700 leading-relaxed answer-box p-4 rounded-r-lg">
+                        <ol class="list-decimal pl-5 space-y-2">
+                            <li><strong>Monochromaticity:</strong> Laser light consists of a single specific wavelength (or color). Unlike white light which is a mix of frequencies, laser light has a very narrow spectral bandwidth.</li>
+                            <li><strong>Coherence:</strong> This is the most unique property. All the photons in a laser beam oscillate in perfect synchronization (spatial and temporal coherence), maintaining a constant phase relationship over long distances.</li>
+                            <li><strong>Directionality:</strong> The beam travels in a straight line with extremely low divergence. A laser beam can travel to the moon and back with relatively little spreading compared to a flashlight.</li>
+                            <li><strong>High Intensity:</strong> Because the energy is concentrated in a very narrow beam both spatially and spectrally, the intensity (power per unit area) of a laser is extremely high, capable of cutting metal.</li>
+                        </ol>
+                    </div>
+                </article>
+
+                <!-- Q8 -->
+                <article class="bg-white rounded-xl shadow-sm border border-slate-100 p-6 card">
+                    <h3 class="font-bold text-lg text-slate-900 mb-3">Q.8 What is optical resonant cavity?</h3>
+                    <div class="text-slate-700 leading-relaxed answer-box p-4 rounded-r-lg">
+                        <p>An optical resonant cavity (or resonator) is a crucial component of a laser that provides the necessary feedback for light amplification. It typically consists of two mirrors placed at opposite ends of the active medium. One mirror is fully reflective ($100\%$), while the other is partially reflective (typically $99\%$ for gas lasers). Light bounces back and forth between these mirrors, passing through the gain medium multiple times and stimulating more emission with each pass. This standing wave formation selects specific frequencies (modes) and builds up intensity until the beam is strong enough to escape through the partially reflective mirror.</p>
+                    </div>
+                </article>
+
+                <!-- Q9 -->
+                <article class="bg-white rounded-xl shadow-sm border border-slate-100 p-6 card">
+                    <h3 class="font-bold text-lg text-slate-900 mb-3">Q.9 What is Nd-YAG laser?</h3>
+                    <div class="text-slate-700 leading-relaxed answer-box p-4 rounded-r-lg">
+                        <p>The Nd-YAG laser is one of the most widely used solid-state lasers. It operates as a four-level system, which makes it efficient.</p>
+                        <ul class="list-disc pl-5 mt-2 space-y-2">
+                            <li><strong>Active Medium:</strong> The host material is a Yttrium Aluminum Garnet ($\text{Y}_3\text{Al}_5\text{O}_{12}$) synthetic crystal, which is doped with Neodymium ions ($\text{Nd}^{3+}$) that act as the active lasing centers.</li>
+                            <li><strong>Pumping:</strong> It utilizes optical pumping, typically driven by a Xenon flash lamp or a semiconductor laser diode array, to excite the Neodymium ions.</li>
+                            <li><strong>Output:</strong> It emits high-power infrared light at a wavelength of $1064 \text{ nm}$ ($1.064 \mu\text{m}$). It can be operated in continuous wave (CW) or pulsed mode (Q-switched) for applications like eye surgery, range finding, and material processing.</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <!-- Q10 -->
+                <article class="bg-white rounded-xl shadow-sm border border-slate-100 p-6 card">
+                    <h3 class="font-bold text-lg text-slate-900 mb-3">Q.10 What is a semiconductor laser?</h3>
+                    <div class="text-slate-700 leading-relaxed answer-box p-4 rounded-r-lg">
+                        <p>A semiconductor laser, often referred to as a Laser Diode, is a compact device that utilizes a p-n junction made from a direct bandgap semiconductor material (such as Gallium Arsenide, GaAs). When a forward bias voltage is applied, electrons from the n-side and holes from the p-side are injected into the junction region (active region). When they recombine, they release energy in the form of photons. Unlike other lasers that require external mirrors, the polished or cleaved crystal facets of the semiconductor itself act as the optical cavity mirrors, reflecting photons back into the active region to sustain the stimulated emission process.</p>
+                    </div>
+                </article>
+
+                <!-- Q11 -->
+                <article class="bg-white rounded-xl shadow-sm border border-slate-100 p-6 card">
+                    <h3 class="font-bold text-lg text-slate-900 mb-3">Q.11 What are the applications of semiconductor laser?</h3>
+                    <div class="text-slate-700 leading-relaxed answer-box p-4 rounded-r-lg">
+                        <ul class="grid grid-cols-1 gap-3">
+                            <li class="flex items-start"><span class="w-2 h-2 bg-blue-500 rounded-full mr-2 mt-2"></span><span><strong>Fiber Optic Communications:</strong> They act as the light source for transmitting high-speed data and internet traffic over long distances through glass fibers.</span></li>
+                            <li class="flex items-start"><span class="w-2 h-2 bg-blue-500 rounded-full mr-2 mt-2"></span><span><strong>Optical Storage:</strong> They are used in CD, DVD, and Blu-ray players to read and write digital data on optical discs with high precision.</span></li>
+                            <li class="flex items-start"><span class="w-2 h-2 bg-blue-500 rounded-full mr-2 mt-2"></span><span><strong>Barcode Scanners:</strong> Used in retail environments to scan product codes quickly using a focused red laser beam.</span></li>
+                            <li class="flex items-start"><span class="w-2 h-2 bg-blue-500 rounded-full mr-2 mt-2"></span><span><strong>Laser Printers:</strong> They "draw" the image onto a photosensitive drum, which then picks up toner to print documents.</span></li>
+                        </ul>
+                    </div>
+                </article>
+
+                <!-- Q12 -->
+                <article class="bg-white rounded-xl shadow-sm border border-slate-100 p-6 card">
+                    <h3 class="font-bold text-lg text-slate-900 mb-3">Q.12 Describe He-Ne gas laser with proper diagram.</h3>
+                    <div class="text-slate-700 leading-relaxed answer-box p-4 rounded-r-lg">
+                        <div class="mb-4">
+                            <h4 class="font-semibold text-slate-800">Construction:</h4>
+                            <p>The Helium-Neon laser is a continuous-wave four-level gas laser. It consists of a fused quartz tube filled with a mixture of Helium and Neon gas at a pressure ratio of approximately 10:1. The tube is placed between two mirrors—one high reflector and one output coupler—forming the resonant cavity. Electrodes are inserted to apply a high voltage discharge across the gas.</p>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-slate-800">Working Mechanism:</h4>
+                            <ol class="list-decimal pl-5 space-y-1">
+                                <li><strong>Excitation:</strong> A high-voltage electric discharge accelerates electrons, which collide with Helium atoms, exciting them to metastable states $2^1s$ and $2^3s$.</li>
+                                <li><strong>Energy Transfer:</strong> The excited Helium atoms collide with Neon atoms. Since the energy levels are nearly identical, energy is transferred to Neon atoms via <strong>Resonant Energy Transfer</strong>, exciting them to the $3s$ and $2s$ levels.</li>
+                                <li><strong>Population Inversion:</strong> This selective excitation creates a population inversion between the excited Neon levels and lower levels.</li>
+                                <li><strong>Lasing:</strong> Stimulated emission occurs as Neon atoms drop to the $3p$ or $2p$ levels, emitting the characteristic red laser light at $632.8 \text{ nm}$.</li>
+                            </ol>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Q13 -->
+                <article class="bg-white rounded-xl shadow-sm border border-slate-100 p-6 card">
+                    <h3 class="font-bold text-lg text-slate-900 mb-3">Q.13 Describe Ruby laser and its working.</h3>
+                    <div class="text-slate-700 leading-relaxed answer-box p-4 rounded-r-lg">
+                        <ul class="list-disc pl-5 space-y-2">
+                            <li><strong>Active Medium:</strong> The core is a cylindrical synthetic ruby rod, which is Aluminum Oxide ($\text{Al}_2\text{O}_3$) doped with approximately 0.05% Chromium ions ($\text{Cr}^{3+}$). The Chromium ions provide the reddish pink color and are responsible for the lasing action.</li>
+                            <li><strong>Pumping Source:</strong> It requires intense optical pumping, typically provided by a helical Xenon flash lamp that surrounds the ruby rod.</li>
+                            <li><strong>Working:</strong> When the flash lamp fires, it emits intense white/green light. The Chromium ions absorb this light and are pumped to excited absorption bands. They rapidly decay non-radiatively to a metastable state. Once population inversion is achieved ($N_{metastable} > N_{ground}$), stimulated emission occurs, producing a high-intensity pulse of deep red light at $694.3 \text{ nm}$. Because the ground state must be depopulated (3-level system), it is inefficient and operates in pulses.</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <!-- Q14 -->
+                <article class="bg-white rounded-xl shadow-sm border border-slate-100 p-6 card">
+                    <h3 class="font-bold text-lg text-slate-900 mb-3">Q.14 What do you understand by three-level and four-level pumping?</h3>
+                    <div class="text-slate-700 leading-relaxed answer-box p-4 rounded-r-lg">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <h4 class="font-bold text-blue-700">Three-Level System</h4>
+                                <p class="text-sm mt-1">In a three-level system (like the Ruby Laser), atoms are pumped from the Ground state (1) to a Pump band (3), then decay quickly to a Metastable state (2). The lasing transition occurs between the Metastable state (2) and the Ground state (1). Because the lower laser level is the ground state, which is naturally fully populated, more than 50% of the atoms must be pumped to level 2 to achieve inversion. This requires enormous pump power.</p>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-blue-700">Four-Level System</h4>
+                                <p class="text-sm mt-1">In a four-level system (like Nd:YAG or He-Ne), the laser transition occurs between two excited states ($3 \to 2$). Atoms are pumped to level 4, decay to level 3 (metastable), lase to level 2, and then rapidly decay to the ground state (1). Because the lower laser level (2) is effectively empty, population inversion is achieved almost immediately upon pumping. This makes four-level lasers much more efficient and easier to operate continuously.</p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Q15 -->
+                <article class="bg-white rounded-xl shadow-sm border border-slate-100 p-6 card">
+                    <h3 class="font-bold text-lg text-slate-900 mb-3">Q.15 Derive the ratio of rate of stimulated emission and absorption in thermal equilibrium.</h3>
+                    <div class="text-slate-700 leading-relaxed answer-box p-4 rounded-r-lg">
+                        <p>Consider an assembly of atoms in thermal equilibrium at temperature $T$. Let $N_1$ be the population of the lower energy state $E_1$ and $N_2$ be the population of the higher energy state $E_2$.</p>
+                        <p class="mt-2">The Rate of Absorption (upward transition) is proportional to the energy density $u(\nu)$ and population $N_1$: $$R_{abs} = B_{12} u(\nu) N_1$$</p>
+                        <p>The Rate of Stimulated Emission (downward transition) is proportional to $u(\nu)$ and population $N_2$: $$R_{stim} = B_{21} u(\nu) N_2$$</p>
+                        <p class="mt-4">Einstein showed that the probability coefficients for induced processes are equal, i.e., $B_{12} = B_{21}$. Therefore, the ratio of the rates simplifies to the ratio of the populations:</p>
+                        $$ \frac{R_{stim}}{R_{abs}} = \frac{B_{21} u(\nu) N_2}{B_{12} u(\nu) N_1} = \frac{N_2}{N_1} $$
+                        <p>According to Boltzmann’s Distribution Law, the population ratio is given by $N_2/N_1 = e^{-(E_2-E_1)/k_B T} = e^{-h\nu/k_B T}$. Substituting this back, we get:</p>
+                        $$ \frac{R_{stim}}{R_{abs}} = e^{-h\nu / k_B T} $$
+                        <p>This shows that at thermal equilibrium, stimulated emission is negligible compared to absorption for optical frequencies.</p>
+                    </div>
+                </article>
+
+                <!-- Q16 -->
+                <article class="bg-white rounded-xl shadow-sm border border-slate-100 p-6 card">
+                    <h3 class="font-bold text-lg text-slate-900 mb-3">Q.16 What are the required conditions to achieve laser light?</h3>
+                    <div class="text-slate-700 leading-relaxed answer-box p-4 rounded-r-lg">
+                        <ol class="list-decimal pl-5 space-y-2">
+                            <li><strong>Metastable State:</strong> The active medium must possess a specific excited state that has a longer lifetime ($\approx 10^{-3}s$) than normal excited states ($\approx 10^{-8}s$). This "bottleneck" allows atoms to accumulate in the upper level.</li>
+                            <li><strong>Population Inversion:</strong> A condition must be created where the number of atoms in the excited metastable state is greater than those in the lower state ($N_2 > N_1$). Without this, the medium will simply absorb the light rather than amplify it.</li>
+                            <li><strong>Stimulated Emission Dominance:</strong> The pumping mechanism and environment must ensure that stimulated emission is the dominant decay process over spontaneous emission to ensure coherence.</li>
+                            <li><strong>Optical Feedback:</strong> An optical resonator (mirror system) is required to reflect photons back through the medium. This positive feedback loop increases the path length of light in the active medium, allowing the beam to gain intensity (amplification) before emission.</li>
+                        </ol>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- Part 2 Section -->
+        <section class="mb-16">
+            <div class="flex items-center gap-3 mb-8 border-b border-slate-200 pb-4">
+                <div class="bg-emerald-600 text-white rounded-full w-10 h-10 flex items-center justify-center font-bold text-lg">2</div>
+                <h2 class="text-3xl font-bold text-slate-800">Objective & Numerical Questions</h2>
+            </div>
+
+            <div class="grid gap-6">
+
+                <!-- Num Q1 -->
+                <article class="bg-white rounded-xl shadow-sm border border-slate-100 overflow-hidden card">
+                    <div class="p-6">
+                        <div class="flex justify-between items-start">
+                            <h3 class="font-bold text-slate-900 w-full">Q.1 Calculate the wavelength of radiation emitted by an LED made up of a semiconducting material with band gap energy 2.8 eV.</h3>
+                            <span class="bg-emerald-100 text-emerald-800 text-xs font-medium px-2.5 py-0.5 rounded ml-2 whitespace-nowrap">Numerical</span>
+                        </div>
+                        
+                        <div class="mt-4 bg-slate-50 p-4 rounded-lg border border-slate-200">
+                            <p class="font-semibold text-slate-700 mb-2">Solution:</p>
+                            <p>The wavelength $\lambda$ is related to the band gap energy $E_g$ by the Planck-Einstein relation: $$\lambda = \frac{hc}{E_g}$$</p>
+                            <p>We can use the convenient approximation where $hc \approx 12400 \text{ eV} \cdot \mathring{A}$. Thus:</p>
+                            <p>Substitution: $$\lambda = \frac{12400}{2.8}$$</p>
+                            <p>Calculation: $$\lambda = 4428.57 \mathring{A}$$</p>
+                            <div class="mt-3 pt-3 border-t border-slate-200">
+                                <p class="text-emerald-700 font-bold">Correct Option: (d) 4430.8 $\mathring{A}$ <span class="text-slate-500 font-normal text-sm">(This is the closest standard value given in the options)</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Obj Q2 -->
+                <article class="bg-white rounded-xl shadow-sm border border-slate-100 p-6 card">
+                    <h3 class="font-bold text-slate-900 mb-2">Q.2 What is the need to achieve population inversion?</h3>
+                    <div class="flex items-start gap-3 mt-3">
+                        <div class="text-emerald-600 mt-1"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg></div>
+                        <div>
+                            <p class="font-bold text-slate-800">Correct Option: (a) To excite most of the atoms</p>
+                            <p class="text-sm text-slate-500 mt-1">Explanation: Population inversion specifically means ensuring $N_{excited} > N_{ground}$. This effectively "excites most of the atoms" to the upper level, ensuring that incident photons are more likely to cause stimulated emission (amplification) rather than being absorbed.</p>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Obj Q3 -->
+                <article class="bg-white rounded-xl shadow-sm border border-slate-100 p-6 card">
+                    <h3 class="font-bold text-slate-900 mb-2">Q.3 Laser beam is made of:</h3>
+                    <div class="flex items-start gap-3 mt-3">
+                        <div class="text-emerald-600 mt-1"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg></div>
+                        <div>
+                            <p class="font-bold text-slate-800">Correct Option: (d) None of them</p>
+                            <p class="text-sm text-slate-500 mt-1">Explanation: A laser beam consists of electromagnetic radiation, the quantum particle of which is the <strong>photon</strong>. The options listed (electrons, protons, phonons) are particles of matter or vibrational energy, not light.</p>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Obj Q4 -->
+                <article class="bg-white rounded-xl shadow-sm border border-slate-100 p-6 card">
+                    <h3 class="font-bold text-slate-900 mb-2">Q.4 The lifetime of electrons in metastable state is of the order of:</h3>
+                    <div class="flex items-start gap-3 mt-3">
+                        <div class="text-emerald-600 mt-1"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg></div>
+                        <div>
+                            <p class="font-bold text-slate-800">Correct Option: (b) $10^{-3}$ s</p>
+                            <p class="text-sm text-slate-500 mt-1">Explanation: Ordinary excited states are very short-lived ($\approx 10^{-8}$ s). A metastable state is "forbidden" to decay quickly, allowing it to hold electrons for much longer ($\approx 10^{-3}$ s), which is crucial for building up population inversion.</p>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Obj Q5 -->
+                <article class="bg-white rounded-xl shadow-sm border border-slate-100 p-6 card">
+                    <h3 class="font-bold text-slate-900 mb-2">Q.5 Which of the following is gas laser?</h3>
+                    <div class="flex items-start gap-3 mt-3">
+                        <div class="text-emerald-600 mt-1"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg></div>
+                        <div>
+                            <p class="font-bold text-slate-800">Correct Option: (a) He-Ne laser</p>
+                            <p class="text-sm text-slate-500 mt-1">Explanation: Ruby and Nd-YAG are solid-state lasers (using crystals). A semiconductor laser is a diode. The He-Ne laser uses a mixture of Helium and Neon gases as the active medium.</p>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Obj Q6 -->
+                <article class="bg-white rounded-xl shadow-sm border border-slate-100 p-6 card">
+                    <h3 class="font-bold text-slate-900 mb-2">Q.6 The method of population inversion in the He-Ne laser is:</h3>
+                    <div class="flex items-start gap-3 mt-3">
+                        <div class="text-emerald-600 mt-1"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg></div>
+                        <div>
+                            <p class="font-bold text-slate-800">Correct Option: (a) Molecular collision</p>
+                            <p class="text-sm text-slate-500 mt-1">Explanation: The primary pumping mechanism for the Neon atoms (which emit the light) is the inelastic <strong>resonant collision</strong> with excited Helium atoms. The electric discharge excites the Helium, which then collides with Neon to invert it.</p>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 py-8 mt-auto">
+        <div class="container mx-auto px-4 text-center">
+            <p>&copy; 2024 Physics Solutions. All rights reserved Master</p>
+            <p class="text-xs mt-2">Mid sem 2 , Physics Solutions</p>
+        </div>
+    </footer>
+
+</body>
+</html>
